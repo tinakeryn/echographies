@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Laboratoire d'analyses médicales de Mount Zonah - Light City"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/173443c88a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" href="./style/Images/icon.png" />
+    <title>Accueil</title>
+  </head>
+  <body>
+    <header>
+      <h1>Echographies générées aléatoirement</h1>
+    </header>
+    <main>
+      <!-- Table des matières -->
+      <nav>
+        <h2>Table des matières</h2>
+        <ul>
+          <li><a href="#firstMonth">Premier mois</a></li>
+          <li><a href="#thirdMonth">3ème mois</a></li>
+          <li><a href="#fifthMonth">5ème mois</a></li>
+          <li><a href="#seventhMonth">7ème mois</a></li>
+        </ul>
+      </nav>
+
+      <!-- Sections -->
+      <section class="container" id="firstMonth">
+        <h2>Premier mois</h2>
+        <p>Appuyez sur le bouton pour obtenir résultat d'échographie du 1er mois</p>
+        <button id="generateFirstMonthButton">Générer écho 1er mois</button>
+        <i id="firstMonthClose" class="fa-solid fa-xmark hidden"></i>
+        <div class="hidden result" id="firstMonthResult"></div>
+      </section>
+    </main>
+    <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>
+    <script src="./JS/index.js"></script>
+  </body>
+</html>

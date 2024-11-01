@@ -1,0 +1,17 @@
+@import "../Utils/mixins";
+@import "../Utils/variables";
+
+footer {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  #arrowUp {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
+  }
+}

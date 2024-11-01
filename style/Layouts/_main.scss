@@ -1,0 +1,121 @@
+@import "../Utils/mixins";
+@import "../Utils/variables";
+
+main {
+  nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    ul {
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+          &:hover {
+            color: $six;
+          }
+        }
+      }
+    }
+  }
+  .container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 40px auto;
+    background-color: $trois;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 700px;
+    -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
+    h2 {
+      margin: 0;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      background-color: $buttonColor;
+      color: $cinq;
+      height: 45px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      -webkit-transition: background-color 0.3s, -webkit-transform 0.2s;
+      transition: background-color 0.3s, -webkit-transform 0.2s;
+      -o-transition: background-color 0.3s, transform 0.2s;
+      transition: background-color 0.3s, transform 0.2s;
+      transition: background-color 0.3s, transform 0.2s, -webkit-transform 0.2s; // Transition pour le changement de couleur
+
+      &:hover {
+        -webkit-transform: translateY(-2px);
+        -ms-transform: translateY(-2px);
+        transform: translateY(-2px);
+        background-color: $buttonHoverColor;
+        color: $trois;
+      }
+
+      &:active {
+        background-color: darken($quatre, 10%);
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+    .fa-xmark {
+      font-size: 24px;
+      position: absolute;
+      top: 150px;
+      right: 20px;
+      &:hover {
+        cursor: pointer;
+        color: $six;
+      }
+    }
+    #t21Close {
+      top: 300px;
+    }
+    .result {
+      background-color: $cinq;
+      border: 1px solid $texte;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+      width: 100%;
+      color: $texte;
+      font-family: "Inconsolata", monospace;
+      white-space: pre-wrap;
+      -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+      input {
+        -ms-flex-item-align: center;
+        align-self: center;
+        background-color: $un;
+        width: 100px;
+        text-align: center;
+      }
+    }
+  }
+}

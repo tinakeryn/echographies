@@ -1,0 +1,9 @@
+@import "../Utils/mixins";
+@import "../Utils/variables";
+
+body {
+  background-color: $un;
+  color: $texte;
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
