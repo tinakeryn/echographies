@@ -333,6 +333,7 @@ const evolutionResults = [
     numero: 1,
     evolutions: [
       {
+        id: 1.1,
         clarteNucale: "1.5 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -342,6 +343,7 @@ const evolutionResults = [
           "La grossesse se déroule normalement avec une clarté nucale dans les limites acceptables et un cœur fœtal actif.",
       },
       {
+        id: 1.2,
         clarteNucale: "2 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -351,6 +353,7 @@ const evolutionResults = [
           "Bien que la clarté nucale soit légèrement augmentée, l'activité cardiaque est présente. Continuer la surveillance.",
       },
       {
+        id: 1.3,
         clarteNucale: "3 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -360,6 +363,7 @@ const evolutionResults = [
           "Des préoccupations émergent concernant une possible anomalie cardiaque, bien que le fœtus soit encore viable.",
       },
       {
+        id: 1.4,
         clarteNucale: "1.8 mm",
         activiteCardiaque: "Faible",
         nombreFetus: 1,
@@ -369,6 +373,7 @@ const evolutionResults = [
           "La grossesse présente des signes de vulnérabilité avec une activité cardiaque faible et un liquide amniotique réduit.",
       },
       {
+        id: 1.5,
         clarteNucale: "3.5 mm",
         activiteCardiaque: "Absente (mort in-utero)",
         nombreFetus: 0,
@@ -383,6 +388,7 @@ const evolutionResults = [
     numero: 2,
     evolutions: [
       {
+        id: 2.1,
         clarteNucale: "2.5 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -392,6 +398,7 @@ const evolutionResults = [
           "La grossesse est en bonne voie, avec une clarté nucale normale et un cœur fœtal actif.",
       },
       {
+        id: 2.2,
         clarteNucale: "2 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -401,6 +408,7 @@ const evolutionResults = [
           "Bien que le cœur fœtal soit actif, une suspicion d'hydrocéphalie nécessite une attention particulière.",
       },
       {
+        id: 2.3,
         clarteNucale: "4 mm",
         activiteCardiaque: "Absente (mort in-utero)",
         nombreFetus: 0,
@@ -415,6 +423,7 @@ const evolutionResults = [
     numero: 3,
     evolutions: [
       {
+        id: 3.1,
         clarteNucale: "3.8 mm",
         activiteCardiaque: "Faible",
         nombreFetus: 1,
@@ -425,6 +434,7 @@ const evolutionResults = [
           "Le fœtus présente une clarté nucale élevée, des déformations faciales et une activité cardiaque faible. Un dépistage de la Trisomie 21 est indispensable.",
       },
       {
+        id: 3.2,
         clarteNucale: "1.5 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -439,6 +449,7 @@ const evolutionResults = [
     numero: 4,
     evolutions: [
       {
+        id: 4.1,
         fetus: {
           bebe1: {
             clarteNucale: "2 mm",
@@ -457,6 +468,7 @@ const evolutionResults = [
           "Les deux fœtus montrent une bonne activité cardiaque, bien qu'une suspicion de cardiopathie nécessite un suivi.",
       },
       {
+        id: 4.2,
         fetus: {
           bebe1: {
             clarteNucale: "3 mm",
@@ -475,6 +487,7 @@ const evolutionResults = [
           "Malheureusement, l'un des fœtus a été perdu, tandis que l'autre continue de montrer des signes de développement normal.",
       },
       {
+        id: 4.3,
         fetus: {
           bebe1: {
             clarteNucale: "1.2 mm",
@@ -498,6 +511,7 @@ const evolutionResults = [
     numero: 5,
     evolutions: [
       {
+        id: 5.1,
         clarteNucale: "3 mm",
         activiteCardiaque: "Faible",
         nombreFetus: 1,
@@ -507,6 +521,7 @@ const evolutionResults = [
           "L'évolution est préoccupante avec une activité cardiaque faible et une anomalie détectée, ce qui nécessite une surveillance accrue.",
       },
       {
+        id: 5.2,
         clarteNucale: "2 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -521,6 +536,7 @@ const evolutionResults = [
     numero: 6,
     evolutions: [
       {
+        id: 6.1,
         clarteNucale: "2 mm",
         activiteCardiaque: "Présente",
         nombreFetus: 1,
@@ -530,6 +546,7 @@ const evolutionResults = [
           "La grossesse évolue normalement avec des résultats satisfaisants au niveau de la clarté nucale et de l'activité cardiaque.",
       },
       {
+        id: 6.2,
         clarteNucale: "3 mm",
         activiteCardiaque: "Absente (mort in-utero)",
         nombreFetus: 0,
@@ -544,6 +561,7 @@ const evolutionResults = [
     numero: 7,
     evolutions: [
       {
+        id: 7.1,
         clarteNucale: "Non applicable",
         activiteCardiaque: "Aucune",
         nombreFetus: 0,
@@ -558,6 +576,7 @@ const evolutionResults = [
     numero: 8,
     evolutions: [
       {
+        id: 8.1,
         fetus: {
           bebe1: {
             clarteNucale: "1.8 mm",
@@ -582,6 +601,7 @@ const evolutionResults = [
           "Bien que le premier et le troisième fœtus présentent une bonne santé, le deuxième montre une activité cardiaque faible et une suspicion de cardiopathie.",
       },
       {
+        id: 8.2,
         fetus: {
           bebe1: {
             clarteNucale: "1.9 mm",
@@ -606,6 +626,7 @@ const evolutionResults = [
           "Tous les fœtus montrent une bonne santé avec des clartés nucales normales et une activité cardiaque présente.",
       },
       {
+        id: 8.3,
         fetus: {
           bebe1: {
             clarteNucale: "1.7 mm",
@@ -630,6 +651,7 @@ const evolutionResults = [
           "Le premier et le troisième fœtus sont en bonne santé, tandis que le deuxième est décédé in-utero, ce qui nécessite une surveillance accrue.",
       },
       {
+        id: 8.4,
         fetus: {
           bebe1: {
             clarteNucale: "1.6 mm",
@@ -654,6 +676,7 @@ const evolutionResults = [
           "Tous les fœtus se portent bien, avec une activité cardiaque normale et des clartés nucales dans la norme.",
       },
       {
+        id: 8.5,
         fetus: {
           bebe1: {
             clarteNucale: "2.0 mm",
@@ -683,6 +706,7 @@ const evolutionResults = [
     numero: 9,
     evolutions: [
       {
+        id: 9.1,
         fetus: {
           bebe1: {
             clarteNucale: "2 mm",
@@ -713,6 +737,7 @@ const evolutionResults = [
           "La grossesse progresse normalement avec des signes de santé fœtale satisfaisants pour tous les fœtus.",
       },
       {
+        id: 9.2,
         fetus: {
           bebe1: {
             clarteNucale: "2.5 mm",
@@ -743,6 +768,7 @@ const evolutionResults = [
           "Le premier, le deuxième et le quatrième fœtus se portent bien, tandis que le troisième montre une activité cardiaque faible et une suspicion de malformation.",
       },
       {
+        id: 9.3,
         fetus: {
           bebe1: {
             clarteNucale: "2.8 mm",
@@ -773,6 +799,7 @@ const evolutionResults = [
           "Trois fœtus sont en bonne santé, tandis que le quatrième est décédé in-utero, nécessitant un suivi attentif.",
       },
       {
+        id: 9.4,
         fetus: {
           bebe1: {
             clarteNucale: "2.4 mm",
@@ -803,6 +830,7 @@ const evolutionResults = [
           "Les trois premiers fœtus présentent des signes de santé normaux, tandis que le quatrième montre une activité cardiaque faible avec une suspicion d'anomalie.",
       },
       {
+        id: 9.5,
         fetus: {
           bebe1: {
             clarteNucale: "2.7 mm",
@@ -838,6 +866,7 @@ const evolutionResults = [
     numero: 10,
     evolutions: [
       {
+        id: 10.1,
         clarteNucale: "Non applicable",
         activiteCardiaque: "Aucune",
         nombreFetus: 0,
@@ -856,6 +885,7 @@ document.getElementById("generateThirdMonthButton").addEventListener("click", fu
   const numberOfFetus = parseInt(document.getElementById("numberOfFetus").value);
   const resultContainer = document.getElementById("thirdMonthResult");
   const evolutionParagraph = document.getElementById("thirdMonthEvolution");
+  const idParagraph = document.getElementById("thirdMonthId"); // Ajouter ceci
 
   // Vérifier que le nombre de fœtus est valide
   if (numberOfFetus < 0 || numberOfFetus > 4) {
@@ -942,11 +972,12 @@ document.getElementById("generateThirdMonthButton").addEventListener("click", fu
   if (randomEvolution && randomEvolution.evolution) {
     evolutionParagraph.innerText = randomEvolution.evolution;
   }
-
+  idParagraph.textContent = `Id de l'évolution au 3ème mois : ${randomEvolution.id}`;
   resultContainer.classList.remove("hidden");
   const thirdMonthResult = document.getElementById("thirdMonthResult");
   thirdMonthResult.classList.remove("hidden");
   document.getElementById("thirdMonthClose").classList.remove("hidden");
+  document.getElementById("thirdMonthId").classList.remove("hidden");
 });
 //? 3ème mois de grossesse <--
 
@@ -961,7 +992,7 @@ document.getElementById("firstMonthClose").addEventListener("click", function ()
   document.getElementById("firstMonthClose").classList.add("hidden"); // Ajoutez la classe hidden à l'icône de fermeture
 });
 document.getElementById("thirdMonthClose").addEventListener("click", function () {
-  hideElements(["thirdMonthClose", "thirdMonthResult"]); // Cela masque les deux éléments
+  hideElements(["thirdMonthClose", "thirdMonthResult", "thirdMonthId"]); // Cela masque les deux éléments
   document.getElementById("thirdMonthClose").classList.add("hidden"); // Ajoutez la classe hidden à l'icône de fermeture
 });
 //? Masquer la section au clic sur la croix <--
