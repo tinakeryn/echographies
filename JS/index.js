@@ -579,7 +579,31 @@ const evolutionResults = [
           },
         },
         evolution:
-          "Bien que le premier et le troisième fœtus soient en bonne santé, le deuxième présente une activité cardiaque faible et une suspicion de cardiopathie.",
+          "Bien que le premier et le troisième fœtus présentent une bonne santé, le deuxième montre une activité cardiaque faible et une suspicion de cardiopathie.",
+      },
+      {
+        fetus: {
+          bebe1: {
+            clarteNucale: "1.9 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe2: {
+            clarteNucale: "2.1 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe3: {
+            clarteNucale: "2.0 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+        },
+        evolution:
+          "Tous les fœtus montrent une bonne santé avec des clartés nucales normales et une activité cardiaque présente.",
       },
       {
         fetus: {
@@ -590,10 +614,10 @@ const evolutionResults = [
             liquideAmniotique: "Normale",
           },
           bebe2: {
-            clarteNucale: "2.8 mm",
-            activiteCardiaque: "Absente",
-            anomalieMorphologique: "Défaillance cardiaque",
-            liquideAmniotique: "Réduit",
+            clarteNucale: "2.4 mm",
+            activiteCardiaque: "Absent",
+            anomalieMorphologique: "Mort in-utero",
+            liquideAmniotique: "Normale",
           },
           bebe3: {
             clarteNucale: "1.5 mm",
@@ -603,12 +627,12 @@ const evolutionResults = [
           },
         },
         evolution:
-          "Le deuxième fœtus est décédé in utero, tandis que les autres poursuivent leur développement normalement.",
+          "Le premier et le troisième fœtus sont en bonne santé, tandis que le deuxième est décédé in-utero, ce qui nécessite une surveillance accrue.",
       },
       {
         fetus: {
           bebe1: {
-            clarteNucale: "2.1 mm",
+            clarteNucale: "1.6 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
@@ -620,13 +644,38 @@ const evolutionResults = [
             liquideAmniotique: "Normale",
           },
           bebe3: {
-            clarteNucale: "1.9 mm",
+            clarteNucale: "2.1 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
           },
         },
-        evolution: "Tous les fœtus progressent normalement avec des signes de bonne santé.",
+        evolution:
+          "Tous les fœtus se portent bien, avec une activité cardiaque normale et des clartés nucales dans la norme.",
+      },
+      {
+        fetus: {
+          bebe1: {
+            clarteNucale: "2.0 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe2: {
+            clarteNucale: "2.7 mm",
+            activiteCardiaque: "Faible",
+            anomalieMorphologique: "Suspicion d'anomalie",
+            liquideAmniotique: "Normale",
+          },
+          bebe3: {
+            clarteNucale: "1.8 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+        },
+        evolution:
+          "Le premier et le troisième fœtus sont en bonne santé, tandis que le deuxième présente une activité cardiaque faible avec une suspicion d'anomalie.",
       },
     ],
   },
@@ -636,51 +685,51 @@ const evolutionResults = [
       {
         fetus: {
           bebe1: {
-            clarteNucale: "1.9 mm",
+            clarteNucale: "2 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
           },
           bebe2: {
-            clarteNucale: "2.6 mm",
+            clarteNucale: "2.1 mm",
             activiteCardiaque: "Présente",
-            anomalieMorphologique: "Suspicion de dysplasie pulmonaire",
-            liquideAmniotique: "Légèrement réduit",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
           },
           bebe3: {
-            clarteNucale: "2.3 mm",
-            activiteCardiaque: "Absente",
-            anomalieMorphologique: "Anomalie cardiaque",
-            liquideAmniotique: "Très réduit",
+            clarteNucale: "2.2 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
           },
           bebe4: {
-            clarteNucale: "1.8 mm",
+            clarteNucale: "2.3 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
           },
         },
         evolution:
-          "Le troisième fœtus est décédé in utero, tandis que les autres présentent une évolution correcte avec quelques anomalies légères.",
+          "La grossesse progresse normalement avec des signes de santé fœtale satisfaisants pour tous les fœtus.",
       },
       {
         fetus: {
           bebe1: {
-            clarteNucale: "2.0 mm",
+            clarteNucale: "2.5 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
           },
           bebe2: {
-            clarteNucale: "1.7 mm",
+            clarteNucale: "2.4 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
           },
           bebe3: {
-            clarteNucale: "1.9 mm",
-            activiteCardiaque: "Présente",
-            anomalieMorphologique: "Aucune",
+            clarteNucale: "2.3 mm",
+            activiteCardiaque: "Faible",
+            anomalieMorphologique: "Suspicion de malformation",
             liquideAmniotique: "Normale",
           },
           bebe4: {
@@ -690,37 +739,98 @@ const evolutionResults = [
             liquideAmniotique: "Normale",
           },
         },
-        evolution: "Les quatre fœtus évoluent normalement sans signe de complication.",
+        evolution:
+          "Le premier, le deuxième et le quatrième fœtus se portent bien, tandis que le troisième montre une activité cardiaque faible et une suspicion de malformation.",
       },
       {
         fetus: {
           bebe1: {
-            clarteNucale: "2.1 mm",
-            activiteCardiaque: "Absente",
-            anomalieMorphologique: "Anomalie cardiaque",
-            liquideAmniotique: "Réduit",
+            clarteNucale: "2.8 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
           },
           bebe2: {
-            clarteNucale: "1.8 mm",
+            clarteNucale: "3.0 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
           },
           bebe3: {
-            clarteNucale: "2.4 mm",
+            clarteNucale: "2.6 mm",
             activiteCardiaque: "Présente",
-            anomalieMorphologique: "Suspicion de malformation pulmonaire",
-            liquideAmniotique: "Légèrement réduit",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
           },
           bebe4: {
-            clarteNucale: "2.0 mm",
+            clarteNucale: "2.9 mm",
+            activiteCardiaque: "Absent",
+            anomalieMorphologique: "Mort in-utero",
+            liquideAmniotique: "Normale",
+          },
+        },
+        evolution:
+          "Trois fœtus sont en bonne santé, tandis que le quatrième est décédé in-utero, nécessitant un suivi attentif.",
+      },
+      {
+        fetus: {
+          bebe1: {
+            clarteNucale: "2.4 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe2: {
+            clarteNucale: "2.6 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe3: {
+            clarteNucale: "2.5 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe4: {
+            clarteNucale: "2.3 mm",
+            activiteCardiaque: "Faible",
+            anomalieMorphologique: "Suspicion d'anomalie",
+            liquideAmniotique: "Normale",
+          },
+        },
+        evolution:
+          "Les trois premiers fœtus présentent des signes de santé normaux, tandis que le quatrième montre une activité cardiaque faible avec une suspicion d'anomalie.",
+      },
+      {
+        fetus: {
+          bebe1: {
+            clarteNucale: "2.7 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe2: {
+            clarteNucale: "2.8 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe3: {
+            clarteNucale: "2.6 mm",
+            activiteCardiaque: "Présente",
+            anomalieMorphologique: "Aucune",
+            liquideAmniotique: "Normale",
+          },
+          bebe4: {
+            clarteNucale: "2.5 mm",
             activiteCardiaque: "Présente",
             anomalieMorphologique: "Aucune",
             liquideAmniotique: "Normale",
           },
         },
         evolution:
-          "Le premier fœtus est décédé in utero, les autres continuent leur développement malgré quelques signes d’anomalie légère chez le troisième fœtus.",
+          "Tous les fœtus se portent bien, avec des signes de santé normaux et une activité cardiaque présente.",
       },
     ],
   },
@@ -834,16 +944,11 @@ document.getElementById("generateThirdMonthButton").addEventListener("click", fu
   }
 
   resultContainer.classList.remove("hidden");
+  const thirdMonthResult = document.getElementById("thirdMonthResult");
+  thirdMonthResult.classList.remove("hidden");
+  document.getElementById("thirdMonthClose").classList.remove("hidden");
 });
 //? 3ème mois de grossesse <--
-
-//? Masquer la section au clic sur la croix
-document.getElementById("firstMonthClose").addEventListener("click", function () {
-  hideElements(["firstMonthClose", "firstMonthResult"]);
-});
-document.getElementById("thirdMonthClose").addEventListener("click", function () {
-  hideElements(["thirdMonthClose", "thirdMonthResult"]);
-});
 
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateFirstMonthButton", "firstMonthSection");
@@ -854,5 +959,9 @@ scrollToSection("generateThirdMonthButton", "thirdMonthSection");
 document.getElementById("firstMonthClose").addEventListener("click", function () {
   hideElements(["firstMonthClose", "firstMonthResult"]); // Cela masque les deux éléments
   document.getElementById("firstMonthClose").classList.add("hidden"); // Ajoutez la classe hidden à l'icône de fermeture
+});
+document.getElementById("thirdMonthClose").addEventListener("click", function () {
+  hideElements(["thirdMonthClose", "thirdMonthResult"]); // Cela masque les deux éléments
+  document.getElementById("thirdMonthClose").classList.add("hidden"); // Ajoutez la classe hidden à l'icône de fermeture
 });
 //? Masquer la section au clic sur la croix <--

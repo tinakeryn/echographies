@@ -130,11 +130,23 @@ main {
         }
       }
     }
+    #firstMonthResult {
+      p {
+        margin-bottom: -30px;
+        margin-top: -20px;
+      }
+    }
     #thirdMonthResult {
       table {
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
         caption {
           color: $six;
-          padding-top: 10px;
+          position: absolute;
+          left: -100px;
+          top: 8px;
+          font-size: 1.2rem;
         }
         .tdTitle {
           width: 230px;

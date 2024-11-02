@@ -153,9 +153,21 @@ main .container div table th,
 main .container div table .tdTitle {
   color: #a3c1da;
 }
+main .container #firstMonthResult p {
+  margin-bottom: -30px;
+  margin-top: -20px;
+}
+main .container #thirdMonthResult table {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 main .container #thirdMonthResult table caption {
   color: #7fb3d5;
-  padding-top: 10px;
+  position: absolute;
+  left: -100px;
+  top: 8px;
+  font-size: 1.2rem;
 }
 main .container #thirdMonthResult table .tdTitle {
   width: 230px;
