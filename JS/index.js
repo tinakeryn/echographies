@@ -318,7 +318,7 @@ document.getElementById("generateFirstMonthButton").addEventListener("click", fu
 
   document.getElementById(
     "firstMonthEvolution"
-  ).innerHTML = `Cas n°${randomResult.numero} <br>${randomResult.evolution}`;
+  ).innerHTML = `Cas n°<span class="important">${randomResult.numero}</span><br>${randomResult.evolution}`;
 
   const firstMonthResult = document.getElementById("firstMonthResult");
   firstMonthResult.classList.remove("hidden");
@@ -885,7 +885,6 @@ document.getElementById("generateThirdMonthButton").addEventListener("click", fu
   const numberOfFetus = parseInt(document.getElementById("numberOfFetus").value);
   const resultContainer = document.getElementById("thirdMonthResult");
   const evolutionParagraph = document.getElementById("thirdMonthEvolution");
-  const idParagraph = document.getElementById("thirdMonthId"); // Ajouter ceci
 
   // Vérifier que le nombre de fœtus est valide
   if (numberOfFetus < 0 || numberOfFetus > 4) {
@@ -970,14 +969,13 @@ document.getElementById("generateThirdMonthButton").addEventListener("click", fu
 
   // Ajouter la valeur de la clé "evolution" au paragraphe
   if (randomEvolution && randomEvolution.evolution) {
-    evolutionParagraph.innerText = randomEvolution.evolution;
+    evolutionParagraph.innerHTML = `${randomEvolution.evolution}<br>Il s'agit de l'évolution n°<span class="important">${randomEvolution.id}</span>`;
   }
-  idParagraph.textContent = `Id de l'évolution au 3ème mois : ${randomEvolution.id}`;
+
   resultContainer.classList.remove("hidden");
-  const thirdMonthResult = document.getElementById("thirdMonthResult");
-  thirdMonthResult.classList.remove("hidden");
+  document.getElementById("thirdMonthResult").classList.remove("hidden");
+  document.getElementById("thirdMonthEvolution").classList.remove("hidden");
   document.getElementById("thirdMonthClose").classList.remove("hidden");
-  document.getElementById("thirdMonthId").classList.remove("hidden");
 });
 //? 3ème mois de grossesse <--
 
@@ -992,7 +990,7 @@ document.getElementById("firstMonthClose").addEventListener("click", function ()
   document.getElementById("firstMonthClose").classList.add("hidden"); // Ajoutez la classe hidden à l'icône de fermeture
 });
 document.getElementById("thirdMonthClose").addEventListener("click", function () {
-  hideElements(["thirdMonthClose", "thirdMonthResult", "thirdMonthId"]); // Cela masque les deux éléments
+  hideElements(["thirdMonthClose", "thirdMonthResult"]); // Cela masque les deux éléments
   document.getElementById("thirdMonthClose").classList.add("hidden"); // Ajoutez la classe hidden à l'icône de fermeture
 });
 //? Masquer la section au clic sur la croix <--
