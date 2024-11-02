@@ -268,7 +268,7 @@ const echographieResults = [
       detail: "Aucune",
     },
     evolution:
-      "La grossesse gémellaire est confirmée avec quatre embryons. Un suivi très attentif est recommandé en raison du risque accru de complications.",
+      "La grossesse multiple est confirmée avec quatre embryons. Un suivi très attentif est recommandé en raison du risque accru de complications.",
   },
   {
     numero: 10,
