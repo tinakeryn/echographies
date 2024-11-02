@@ -113,5 +113,33 @@ main {
         text-align: center;
       }
     }
+    div {
+      table {
+        margin: auto;
+        width: 500px;
+        border: 2px solid $deux;
+        border-collapse: collapse;
+        th,
+        td {
+          border: 1px solid $deux;
+          padding: 8px;
+        }
+        th,
+        .tdTitle {
+          color: $quatre;
+        }
+      }
+    }
+    #thirdMonthResult {
+      table {
+        caption {
+          color: $six;
+          padding-top: 10px;
+        }
+        .tdTitle {
+          width: 230px;
+        }
+      }
+    }
   }
 }
