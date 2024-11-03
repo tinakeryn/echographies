@@ -2658,38 +2658,42 @@ function generateFetusTables() {
   for (let i = 1; i <= fetusCount; i++) {
     const caption = fetusCount > 1 ? `<caption>Bébé n°${i}</caption>` : "";
     const tableHTML = `
-  <table id="fetusTable${i}">
-${caption}
-<thead>
-<tr>
-<th>Élément observé</th>
-<th>Observation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tdTitle">Morphologie cérébrale</td>
-<td id="morphologieCerebrale${i}"></td>
-</tr>
-<tr>
-<td class="tdTitle">Colonne vertébrale</td>
-<td id="colonneVertebrale${i}"></td>
-</tr>
-<tr>
-<td class="tdTitle">Membres</td>
-<td id="membres${i}"></td>
-</tr>
-<tr>
-<td class="tdTitle">Placenta</td>
-<td id="placenta${i}"></td>
-</tr>
-<tr>
-<td class="tdTitle">Interprétation</td>
-<td id="interpretation${i}"></td>
-</tr>
-</tbody>
-  </table>
-`;
+    <table id="fetusTable${i}">
+      ${caption}
+      <thead>
+        <tr>
+          <th>Élément observé</th>
+          <th>Observation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Morphologie cérébrale</td>
+          <td id="morphologieCerebrale${i}"></td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Colonne vertébrale</td>
+          <td id="colonneVertebrale${i}"></td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Membres</td>
+          <td id="membres${i}"></td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Placenta</td>
+          <td id="placenta${i}"></td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Interprétation</td>
+          <td id="interpretation${i}"></td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Sexe</td>
+          <td id="sexe${i}"></td>
+        </tr>
+      </tbody>
+    </table>
+  `;
     resultContainer.innerHTML += `${tableHTML}`;
   }
   const evolutionParagraph = document.createElement("p");
@@ -2739,12 +2743,16 @@ function selectRandomSubCase() {
   const evolutionParagraph = document.getElementById("fifthMonthEvolution");
 
   if (selectedData && selectedData.conclusion) {
-    evolutionParagraph.innerHTML = `<br>Cas n°<span class="important">${selectedSubCase}</span><br>${selectedData.conclusion}`;
+    evolutionParagraph.innerHTML = `Cas n°<span class="important">${selectedSubCase}</span><br>${selectedData.conclusion}`;
   } else {
     console.log(`Aucune conclusion trouvée pour le sous-cas ${selectedSubCase}.`);
   }
 
   return selectedData;
+}
+//* Fonction pour générer le sexe
+function getRandomSex() {
+  return Math.random() < 0.5 ? "Masculin" : "Féminin";
 }
 //* Fonction pour insérer les données dans les tableaux
 function fillTableWithData(data, fetusIndex) {
@@ -2774,6 +2782,7 @@ function fillTableWithData(data, fetusIndex) {
     table.querySelector(`#interpretation${fetusIndex}`).textContent =
       data.interpretation || "Non disponible";
   }
+  table.querySelector(`#sexe${fetusIndex}`).textContent = getRandomSex();
 }
 //* Écouteur pour déclencher la génération des tableaux au clic sur le bouton
 document.getElementById("generateFifthMonthButton").addEventListener("click", function () {
