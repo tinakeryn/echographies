@@ -2290,9 +2290,8 @@ function generateFetusTables() {
   const resultContainer = document.getElementById("fifthMonthResult");
   resultContainer.innerHTML = "";
   for (let i = 1; i <= fetusCount; i++) {
-    const table = document.createElement("table");
     const caption = fetusCount > 1 ? `<caption>Bébé n°${i}</caption>` : "";
-    table.innerHTML = `
+    const tableHTML = `
       <table id="fetusTable${i}">
         ${caption}
         <thead>
@@ -2325,7 +2324,7 @@ function generateFetusTables() {
         </tbody>
       </table>
     `;
-    resultContainer.appendChild(table);
+    resultContainer.innerHTML += tableHTML;
   }
 }
 //* Objet de mappage entre les valeurs thirdMonthCaseNumber et les dictionnaires correspondants

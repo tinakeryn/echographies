@@ -181,4 +181,8 @@ main .container #fifthMonthResult table caption {
 main .container #thirdMonthResult table .tdTitle,
 main .container #fifthMonthResult table .tdTitle {
   width: 230px;
+}
+main .container #fifthMonthResult table {
+  margin-top: -25px;
+  margin-bottom: -30px;
 }/*# sourceMappingURL=style.css.map */
