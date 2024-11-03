@@ -131,8 +131,13 @@ main {
         }
       }
     }
-    #firstMonthResult,
-    #fifthMonthResult {
+    .paragraphReport {
+      font-size: medium;
+    }
+    #firstMonthEvolution {
+      font-size: medium;
+    }
+    #firstMonthResult {
       p {
         margin-bottom: -30px;
         margin-top: -20px;

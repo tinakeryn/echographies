@@ -17,7 +17,6 @@
       <h1>Echographies générées aléatoirement</h1>
     </header>
     <main>
-      <!-- Table des matières -->
       <nav>
         <h2>Table des matières</h2>
         <ul>
@@ -29,7 +28,6 @@
         </ul>
       </nav>
 
-      <!-- Sections -->
       <section class="container" id="firstMonthSection">
         <h2>Premier mois</h2>
         <p>Appuyez sur le bouton pour obtenir résultat d'échographie du 1er mois</p>
@@ -72,7 +70,7 @@
               </tr>
             </tbody>
           </table>
-          <p id="firstMonthEvolution"></p>
+          <p id="firstMonthEvolution" class="hidden"></p>
         </div>
       </section>
       <section class="container" id="thirdMonthSection">
@@ -96,7 +94,6 @@
         <button id="generateThirdMonthButton">Générer écho 3ème mois</button>
         <i id="thirdMonthClose" class="fa-solid fa-xmark hidden"></i>
         <div class="hidden result" id="thirdMonthResult"></div>
-        <p id="thirdMonthEvolution" class="hidden"></p>
       </section>
       <section class="container" id="fifthMonthSection">
         <h2>5ème mois</h2>
@@ -115,6 +112,8 @@
             <option value="4.1">4.1</option>
             <option value="4.2">4.2</option>
             <option value="4.3">4.3</option>
+            <option value="4.4">4.4</option>
+            <option value="4.5">4.5</option>
             <option value="5.1">5.1</option>
             <option value="5.2">5.2</option>
             <option value="6.1">6.1</option>
@@ -133,7 +132,6 @@
         <button id="generateFifthMonthButton">Générer écho 5ème mois</button>
         <i id="fifthMonthClose" class="fa-solid fa-xmark hidden"></i>
         <div class="hidden result" id="fifthMonthResult"></div>
-        <p id="fifthMonthEvolution" class="hidden"></p>
       </section>
     </main>
     <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>
