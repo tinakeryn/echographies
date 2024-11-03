@@ -2739,7 +2739,7 @@ function selectRandomSubCase() {
   const evolutionParagraph = document.getElementById("fifthMonthEvolution");
 
   if (selectedData && selectedData.conclusion) {
-    evolutionParagraph.innerHTML = `Evolution n°<span class="important">${selectedSubCase}</span> :<br>${selectedData.conclusion}`;
+    evolutionParagraph.innerHTML = `<br>Cas n°<span class="important">${selectedSubCase}</span><br>${selectedData.conclusion}`;
   } else {
     console.log(`Aucune conclusion trouvée pour le sous-cas ${selectedSubCase}.`);
   }
