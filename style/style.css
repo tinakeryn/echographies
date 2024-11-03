@@ -137,7 +137,8 @@ main .container form {
   gap: 10px;
   padding-bottom: 20px;
 }
-main .container form input {
+main .container form input,
+main .container form select {
   align-self: center;
   background-color: #2b2b2b;
   width: 100px;
@@ -158,22 +159,26 @@ main .container div table th,
 main .container div table .tdTitle {
   color: #a3c1da;
 }
-main .container #firstMonthResult p {
+main .container #firstMonthResult p,
+main .container #fifthMonthResult p {
   margin-bottom: -30px;
   margin-top: -20px;
 }
-main .container #thirdMonthResult table {
+main .container #thirdMonthResult table,
+main .container #fifthMonthResult table {
   position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-main .container #thirdMonthResult table caption {
+main .container #thirdMonthResult table caption,
+main .container #fifthMonthResult table caption {
   color: #7fb3d5;
   position: absolute;
   left: -100px;
   top: 8px;
   font-size: 1.2rem;
 }
-main .container #thirdMonthResult table .tdTitle {
+main .container #thirdMonthResult table .tdTitle,
+main .container #fifthMonthResult table .tdTitle {
   width: 230px;
 }/*# sourceMappingURL=style.css.map */

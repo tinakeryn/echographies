@@ -105,7 +105,8 @@ main {
       flex-direction: column;
       gap: 10px;
       padding-bottom: 20px;
-      input {
+      input,
+      select {
         -ms-flex-item-align: center;
         align-self: center;
         background-color: $un;
@@ -130,13 +131,15 @@ main {
         }
       }
     }
-    #firstMonthResult {
+    #firstMonthResult,
+    #fifthMonthResult {
       p {
         margin-bottom: -30px;
         margin-top: -20px;
       }
     }
-    #thirdMonthResult {
+    #thirdMonthResult,
+    #fifthMonthResult {
       table {
         position: relative;
         margin-top: 20px;
