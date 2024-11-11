@@ -98,36 +98,24 @@
       <section class="container" id="fifthMonthSection">
         <h2>5ème mois</h2>
         <form>
-          <label for="thirdMonthCaseNumber">Numéro du cas obtenu à la 3ème écho</label>
-          <select id="thirdMonthCaseNumber">
-            <option value="" disabled selected>Sélectionnez un ID</option>
-            <option value="1.1">1.1</option>
-            <option value="1.2">1.2</option>
-            <option value="1.3">1.3</option>
-            <option value="1.4">1.4</option>
-            <option value="2.1">2.1</option>
-            <option value="2.2">2.2</option>
-            <option value="3.1">3.1</option>
-            <option value="3.2">3.2</option>
-            <option value="4.1">4.1</option>
-            <option value="4.2">4.2</option>
-            <option value="4.3">4.3</option>
-            <option value="4.4">4.4</option>
-            <option value="4.5">4.5</option>
-            <option value="5.1">5.1</option>
-            <option value="5.2">5.2</option>
-            <option value="6.1">6.1</option>
-            <option value="8.1">8.1</option>
-            <option value="8.2">8.2</option>
-            <option value="8.3">8.3</option>
-            <option value="8.4">8.4</option>
-            <option value="8.5">8.5</option>
-            <option value="9.1">9.1</option>
-            <option value="9.2">9.2</option>
-            <option value="9.3">9.3</option>
-            <option value="9.4">9.4</option>
-            <option value="9.5">9.5</option>
+          <label for="mainCaseSelector">Cas obtenu à la 1ère écho</label>
+          <select id="mainCaseSelector">
+            <option value="" disabled selected>N° du cas</option>
+            <option value="1">Cas 1</option>
+            <option value="2">Cas 2</option>
+            <option value="3">Cas 3</option>
+            <option value="4">Cas 4</option>
+            <option value="5">Cas 5</option>
+            <option value="6">Cas 6</option>
+            <option value="8">Cas 8</option>
+            <option value="9">Cas 9</option>
           </select>
+          <div id="thirdMonthCaseContainer">
+            <label for="thirdMonthCaseNumber">Sous-cas obtenu à la 2ème écho</label>
+            <select id="thirdMonthCaseNumber">
+              <option value="" disabled selected>N° du sous-cas</option>
+            </select>
+          </div>
         </form>
         <button id="generateFifthMonthButton">Générer écho 5ème mois</button>
         <i id="fifthMonthClose" class="fa-solid fa-xmark hidden"></i>
@@ -148,8 +136,6 @@
             <option value="8">8</option>
             <option value="9">9</option>
           </select>
-
-          <!-- Conteneur pour les sélecteurs dynamiques -->
           <div id="additionalSelectors"></div>
         </form>
         <button id="generateSeventhMonthButton">Générer écho 7ème mois</button>

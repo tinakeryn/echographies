@@ -2621,6 +2621,47 @@ const fifthMonthCaseNine = {
 <span class="rapport">Conduite à tenir</span> : Conduire des enquêtes cliniques approfondies sur Bébé 4. Continuer un soutien prénatal constant et des contrôles réguliers pour les autres bébés avec des visites échographiques régulières.`,
   },
 };
+
+const mainCaseSelector = document.getElementById("mainCaseSelector");
+const thirdMonthCaseContainer = document.getElementById("thirdMonthCaseContainer");
+const thirdMonthCaseNumber = document.getElementById("thirdMonthCaseNumber");
+
+//* Mapping of main cases to their respective third-month options
+const caseOptions = {
+  1: ["1.1", "1.2", "1.3", "1.4"],
+  2: ["2.1", "2.2"],
+  3: ["3.1", "3.2"],
+  4: ["4.1", "4.2", "4.3", "4.4", "4.5"],
+  5: ["5.1", "5.2"],
+  6: ["6.1"],
+  8: ["8.1", "8.2", "8.3", "8.4", "8.5"],
+  9: ["9.1", "9.2", "9.3", "9.4", "9.5"],
+};
+
+//* Mise à jour dynamique des options du second sélecteur en fonction du cas principal sélectionné
+mainCaseSelector.addEventListener("change", function () {
+  const selectedMainCase = mainCaseSelector.value;
+
+  // Clear previous options in thirdMonthCaseNumber
+  thirdMonthCaseNumber.innerHTML = `<option value="" disabled selected>N° du sous-cas</option>`;
+
+  // Populate thirdMonthCaseNumber with relevant options based on the selected main case
+  if (selectedMainCase && caseOptions[selectedMainCase]) {
+    caseOptions[selectedMainCase].forEach((option) => {
+      const newOption = document.createElement("option");
+      newOption.value = option;
+      newOption.textContent = option;
+      thirdMonthCaseNumber.appendChild(newOption);
+    });
+
+    // Show the thirdMonthCaseContainer once options are populated
+    thirdMonthCaseContainer.style.display = "block";
+  } else {
+    // Hide the thirdMonthCaseContainer if no valid case is selected
+    thirdMonthCaseContainer.style.display = "none";
+  }
+});
+
 //* Objet contenant le nombre de fœtus par cas
 const fetusCountByCase = {
   4.1: 2,
@@ -2808,12 +2849,20 @@ function updateSelectors() {
   const container = document.getElementById("additionalSelectors");
   container.innerHTML = ""; // Efface les sélecteurs précédents
 
-  // Ajoute le sélecteur de sexe en fonction du cas sélectionné
+  // Ajout du sélecteur de sexe en fonction du cas sélectionné
   let numberOfBabies = 1;
   if (caseNumber === "4") numberOfBabies = 2;
   else if (caseNumber === "8") numberOfBabies = 3;
   else if (caseNumber === "9") numberOfBabies = 4;
 
+  // Affiche ou cache le conteneur en fonction de la sélection
+  if (caseNumber && numberOfBabies > 1) {
+    container.style.display = "block"; // Rendre le conteneur visible si des sélecteurs doivent être ajoutés
+  } else {
+    container.style.display = "none"; // Cacher si aucun sélecteur supplémentaire
+  }
+
+  // Ajout des sélecteurs pour le sexe des bébés
   for (let i = 1; i <= numberOfBabies; i++) {
     const label = document.createElement("label");
     label.setAttribute("for", `babySex${i}`);
@@ -2822,17 +2871,17 @@ function updateSelectors() {
     const select = document.createElement("select");
     select.setAttribute("id", `babySex${i}`);
     select.innerHTML = `
-          <option value="" disabled selected>Sélectionnez le sexe</option>
-          <option value="Féminin">Féminin</option>
-          <option value="Masculin">Masculin</option>
-      `;
+      <option value="" disabled selected>Sélectionnez le sexe</option>
+      <option value="Féminin">Féminin</option>
+      <option value="Masculin">Masculin</option>
+    `;
 
     container.appendChild(label);
     container.appendChild(select);
     container.appendChild(document.createElement("br"));
   }
 
-  // Ajoute le sélecteur pour les sous-cas selon le cas sélectionné
+  // Ajout du sélecteur pour les sous-cas
   const subCaseSelect = document.createElement("select");
   subCaseSelect.setAttribute("id", "subCaseSelector");
   const options = getSubCaseOptions(caseNumber);
@@ -2846,7 +2895,7 @@ function updateSelectors() {
 
   const subCaseLabel = document.createElement("label");
   subCaseLabel.setAttribute("for", "subCaseSelector");
-  subCaseLabel.textContent = "Sélectionnez un sous-cas ";
+  subCaseLabel.textContent = "Cas obtenu à l'écho du 5ème mois ";
 
   container.appendChild(subCaseLabel);
   container.appendChild(subCaseSelect);
@@ -2927,6 +2976,7 @@ function getSubCaseOptions(caseNumber) {
   };
   return subCaseOptions[caseNumber] || [];
 }
+
 //? 7ème mois de grossesse <--
 
 //? Afficher toute la section au clic sur le bouton
