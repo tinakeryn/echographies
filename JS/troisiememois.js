@@ -283,11 +283,10 @@ const evolutionResults = [
         id: 6.2,
         clarteNucale: "3 mm",
         activiteCardiaque: "Absente (mort in-utero)",
-        nombreFetus: 0,
+        nombreFetus: 1,
         anomalieMorphologique: "Non applicable",
         liquideAmniotique: "Non applicable",
-        evolution: `html
-  <span class="rapport">Évolution</span> : Malheureusementt, la grossesse a abouti à une perte fœtale, marquée par l'absence d'activité cardiaque.<br>
+        evolution: `<span class="rapport">Évolution</span> : Malheureusementt, la grossesse a abouti à une perte fœtale, marquée par l'absence d'activité cardiaque.<br>
   <span class="rapport">Conduite à tenir</span> : Il est crucial de proposer un soutien émotionnel et médical à la patiente après cette perte. Des consultations avec des professionnels de santé sont nécessaires pour gérer la suite du processus, potentiellement avec un curetage. Un suivi psychologique peut également être recommandé pour aider la patiente dans sa convalescence émotionnelle.
   `,
       },
