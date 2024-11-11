@@ -2849,14 +2849,14 @@ function updateSelectors() {
   const container = document.getElementById("additionalSelectors");
   container.innerHTML = ""; // Efface les sélecteurs précédents
 
-  // Ajout du sélecteur de sexe en fonction du cas sélectionné
+  // Définition du nombre de bébés en fonction du cas sélectionné
   let numberOfBabies = 1;
   if (caseNumber === "4") numberOfBabies = 2;
   else if (caseNumber === "8") numberOfBabies = 3;
   else if (caseNumber === "9") numberOfBabies = 4;
 
-  // Affiche ou cache le conteneur en fonction de la sélection
-  if (caseNumber && numberOfBabies > 1) {
+  // Affiche ou cache le conteneur en fonction du cas sélectionné
+  if (caseNumber && numberOfBabies > 0) {
     container.style.display = "block"; // Rendre le conteneur visible si des sélecteurs doivent être ajoutés
   } else {
     container.style.display = "none"; // Cacher si aucun sélecteur supplémentaire
@@ -2866,7 +2866,7 @@ function updateSelectors() {
   for (let i = 1; i <= numberOfBabies; i++) {
     const label = document.createElement("label");
     label.setAttribute("for", `babySex${i}`);
-    label.textContent = numberOfBabies === 1 ? "Sexe du Bébé " : `Sexe de Bébé ${i} `;
+    label.textContent = numberOfBabies === 1 ? "Sexe du Bébé " : `Sexe de Bébé ${i}`;
 
     const select = document.createElement("select");
     select.setAttribute("id", `babySex${i}`);
