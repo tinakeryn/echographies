@@ -2800,9 +2800,134 @@ document.getElementById("generateFifthMonthButton").addEventListener("click", fu
   document.getElementById("fifthMonthEvolution").classList.remove("hidden");
   document.getElementById("fifthMonthClose").classList.remove("hidden");
 });
-//TODO: Placer correctement le paragraphe de la conclusion
-//TODO: Ajouter la détermination du sexe du fœtus
 //? 5ème mois de grossesse <--
+
+//? --> 7ème mois de grossesse
+function updateSelectors() {
+  const caseNumber = document.getElementById("firstMonthCaseNumber").value;
+  const container = document.getElementById("additionalSelectors");
+  container.innerHTML = ""; // Efface les sélecteurs précédents
+
+  // Ajoute le sélecteur de sexe en fonction du cas sélectionné
+  let numberOfBabies = 1;
+  if (caseNumber === "4") numberOfBabies = 2;
+  else if (caseNumber === "8") numberOfBabies = 3;
+  else if (caseNumber === "9") numberOfBabies = 4;
+
+  for (let i = 1; i <= numberOfBabies; i++) {
+    const label = document.createElement("label");
+    label.setAttribute("for", `babySex${i}`);
+    label.textContent = numberOfBabies === 1 ? "Sexe du Bébé " : `Sexe de Bébé ${i} `;
+
+    const select = document.createElement("select");
+    select.setAttribute("id", `babySex${i}`);
+    select.innerHTML = `
+          <option value="" disabled selected>Sélectionnez le sexe</option>
+          <option value="Féminin">Féminin</option>
+          <option value="Masculin">Masculin</option>
+      `;
+
+    container.appendChild(label);
+    container.appendChild(select);
+    container.appendChild(document.createElement("br"));
+  }
+
+  // Ajoute le sélecteur pour les sous-cas selon le cas sélectionné
+  const subCaseSelect = document.createElement("select");
+  subCaseSelect.setAttribute("id", "subCaseSelector");
+  const options = getSubCaseOptions(caseNumber);
+
+  options.forEach((optionValue) => {
+    const option = document.createElement("option");
+    option.value = optionValue;
+    option.textContent = optionValue;
+    subCaseSelect.appendChild(option);
+  });
+
+  const subCaseLabel = document.createElement("label");
+  subCaseLabel.setAttribute("for", "subCaseSelector");
+  subCaseLabel.textContent = "Sélectionnez un sous-cas ";
+
+  container.appendChild(subCaseLabel);
+  container.appendChild(subCaseSelect);
+}
+
+// Fonction pour récupérer les options de sous-cas en fonction du cas sélectionné
+function getSubCaseOptions(caseNumber) {
+  const subCaseOptions = {
+    1: [
+      "1.1.1",
+      "1.1.2",
+      "1.1.3",
+      "1.2.1",
+      "1.2.2",
+      "1.2.3",
+      "1.3.1",
+      "1.3.2",
+      "1.3.3",
+      "1.4.1",
+      "1.4.2",
+      "1.4.3",
+    ],
+    2: ["2.1.1", "2.1.2", "2.1.3", "2.2.1", "2.2.2", "2.2.3"],
+    3: ["3.1.1", "3.1.2", "3.1.3", "3.2.1", "3.2.2", "3.2.3"],
+    4: [
+      "4.1.1",
+      "4.1.2",
+      "4.1.3",
+      "4.2.1",
+      "4.2.2",
+      "4.2.3",
+      "4.3.1",
+      "4.3.2",
+      "4.3.3",
+      "4.4.1",
+      "4.4.2",
+      "4.4.3",
+      "4.5.1",
+      "4.5.2",
+      "4.5.3",
+    ],
+    5: ["5.1.1", "5.1.2", "5.1.3", "5.2.1", "5.2.2", "5.2.3"],
+    6: ["6.1.1", "6.1.2", "6.1.3"],
+    8: [
+      "8.1.1",
+      "8.1.2",
+      "8.1.3",
+      "8.2.1",
+      "8.2.2",
+      "8.2.3",
+      "8.3.1",
+      "8.3.2",
+      "8.3.3",
+      "8.4.1",
+      "8.4.2",
+      "8.4.3",
+      "8.5.1",
+      "8.5.2",
+      "8.5.3",
+    ],
+    9: [
+      "9.1.1",
+      "9.1.2",
+      "9.1.3",
+      "9.2.1",
+      "9.2.2",
+      "9.2.3",
+      "9.3.1",
+      "9.3.2",
+      "9.3.3",
+      "9.4.1",
+      "9.4.2",
+      "9.4.3",
+      "9.5.1",
+      "9.5.2",
+      "9.5.3",
+    ],
+  };
+  return subCaseOptions[caseNumber] || [];
+}
+//? 7ème mois de grossesse <--
 
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateFirstMonthButton", "firstMonthSection");
