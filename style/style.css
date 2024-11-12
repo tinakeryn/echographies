@@ -195,13 +195,15 @@ main .container #firstMonthResult p {
   margin-top: -20px;
 }
 main .container #thirdMonthResult table,
-main .container #fifthMonthResult table {
+main .container #fifthMonthResult table,
+main .container #seventhMonthResult table {
   position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 main .container #thirdMonthResult table caption,
-main .container #fifthMonthResult table caption {
+main .container #fifthMonthResult table caption,
+main .container #seventhMonthResult table caption {
   color: #7fb3d5;
   position: absolute;
   left: -100px;
@@ -209,7 +211,8 @@ main .container #fifthMonthResult table caption {
   font-size: 1.2rem;
 }
 main .container #thirdMonthResult table .tdTitle,
-main .container #fifthMonthResult table .tdTitle {
+main .container #fifthMonthResult table .tdTitle,
+main .container #seventhMonthResult table .tdTitle {
   width: 230px;
 }
 main .container #fifthMonthResult table {

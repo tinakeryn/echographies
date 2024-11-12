@@ -172,7 +172,7 @@ const mainCaseSelector = document.getElementById("mainCaseSelector");
 const thirdMonthCaseContainer = document.getElementById("thirdMonthCaseContainer");
 const thirdMonthCaseNumber = document.getElementById("thirdMonthCaseNumber");
 
-//* Mapping of main cases to their respective third-month options
+//* Mapping des cas principaux vers leurs options respectives du troisième mois
 const caseOptions = {
   1: ["1.1", "1.2", "1.3", "1.4"],
   2: ["2.1", "2.2"],
@@ -288,7 +288,6 @@ function generateFetusTables() {
   evolutionParagraph.className = "paragraphReport";
   resultContainer.appendChild(evolutionParagraph);
 }
-
 //* Objet de mappage entre les valeurs thirdMonthCaseNumber et les dictionnaires correspondants
 const caseMapping = {
   1.1: fifthMonthCaseOne,
@@ -521,6 +520,191 @@ function getSubCaseOptions(caseNumber) {
   };
   return subCaseOptions[caseNumber] || [];
 }
+
+function generateSeventhMonthReport() {
+  const subCaseSelector = document.getElementById("subCaseSelector");
+  const selectedSubCase = String(subCaseSelector.value);
+
+  if (!selectedSubCase) {
+    alert("Veuillez sélectionner un sous-cas.");
+    return;
+  }
+
+  // Correspondances des sous-cas avec les dictionnaires (les objets de 7e mois)
+  const caseMappings = {
+    "1.1.1": sevenOneDotOneA,
+    "1.1.2": sevenOneDotOneB,
+    "1.1.3": sevenOneDotOneC,
+    "1.2.1": sevenOneDotTwoA,
+    "1.2.2": sevenOneDotTwoB,
+    "1.2.3": sevenOneDotTwoC,
+    "1.3.1": sevenOneDotThreeA,
+    "1.3.2": sevenOneDotThreeB,
+    "1.3.3": sevenOneDotThreeC,
+    "1.4.1": sevenOneDotFourA,
+    "1.4.2": sevenOneDotFourB,
+    "1.4.3": sevenOneDotFourC,
+    "2.1.1": sevenTwoDotOneA,
+    "2.1.2": sevenTwoDotOneB,
+    "2.1.3": sevenTwoDotOneC,
+    "2.2.1": sevenTwoDotTwoA,
+    "2.2.2": sevenTwoDotTwoB,
+    "2.2.3": sevenTwoDotTwoC,
+    "3.1.1": sevenThreeDotOneA,
+    "3.1.2": sevenThreeDotOneB,
+    "3.1.3": sevenThreeDotOneC,
+    "3.2.1": sevenThreeDotTwoA,
+    "3.2.2": sevenThreeDotTwoB,
+    "3.2.3": sevenThreeDotTwoC,
+    "4.1.1": sevenFourDotOneA,
+    "4.1.2": sevenFourDotOneB,
+    "4.1.3": sevenFourDotOneC,
+    "4.2.1": sevenFourDotTwoA,
+    "4.2.2": sevenFourDotTwoB,
+    "4.2.3": sevenFourDotTwoC,
+    "4.3.1": sevenFourDotThreeA,
+    "4.3.2": sevenFourDotThreeB,
+    "4.3.3": sevenFourDotThreeC,
+    "4.4.1": sevenFourDotFourA,
+    "4.4.2": sevenFourDotFourB,
+    "4.4.3": sevenFourDotFourC,
+    "4.5.1": sevenFourDotFiveA,
+    "4.5.2": sevenFourDotFiveB,
+    "4.5.3": sevenFourDotFiveC,
+    "5.1.1": sevenFiveDotOneA,
+    "5.1.2": sevenFiveDotOneB,
+    "5.1.3": sevenFiveDotOneC,
+    "5.2.1": sevenFiveDotTwoA,
+    "5.2.2": sevenFiveDotTwoB,
+    "5.2.3": sevenFiveDotTwoC,
+    "6.1.1": sevenSixDotOneA,
+    "6.1.2": sevenSixDotOneB,
+    "6.1.3": sevenSixDotOneC,
+    "8.1.1": sevenEightDotOneA,
+    "8.1.2": sevenEightDotOneB,
+    "8.1.3": sevenEightDotOneC,
+    "8.2.1": sevenEightDotTwoA,
+    "8.2.2": sevenEightDotTwoB,
+    "8.2.3": sevenEightDotTwoC,
+    "8.3.1": sevenEightDotThreeA,
+    "8.3.2": sevenEightDotThreeB,
+    "8.3.3": sevenEightDotThreeC,
+    "8.4.1": sevenEightDotFourA,
+    "8.4.2": sevenEightDotFourB,
+    "8.4.3": sevenEightDotFourC,
+    "8.5.1": sevenEightDotFiveA,
+    "8.5.2": sevenEightDotFiveB,
+    "8.5.3": sevenEightDotFiveC,
+    "9.1.1": sevenNineDotOneA,
+    "9.1.2": sevenNineDotOneB,
+    "9.1.3": sevenNineDotOneC,
+    "9.2.1": sevenNineDotTwoA,
+    "9.2.2": sevenNineDotTwoB,
+    "9.2.3": sevenNineDotTwoC,
+    "9.3.1": sevenNineDotThreeA,
+    "9.3.2": sevenNineDotThreeB,
+    "9.3.3": sevenNineDotThreeC,
+    "9.4.1": sevenNineDotFourA,
+    "9.4.2": sevenNineDotFourB,
+    "9.4.3": sevenNineDotFourC,
+    "9.5.1": sevenNineDotFiveA,
+    "9.5.2": sevenNineDotFiveB,
+    "9.5.3": sevenNineDotFiveC,
+  };
+
+  // Dictionnaire du nombre de bébés par sous-cas
+  const babyCounts = {
+    // Cas avec 2 bébés
+    "4.1.1": 2,
+    "4.1.2": 2,
+    "4.1.3": 2,
+    "4.2.1": 2,
+    "4.2.2": 2,
+    "4.2.3": 2,
+    // Ajoutez tous les autres cas avec 2 bébés...
+
+    // Cas avec 3 bébés
+    "8.1.1": 3,
+    "8.1.2": 3,
+    "8.1.3": 3,
+    "8.2.1": 3,
+    "8.2.2": 3,
+    "8.2.3": 3,
+    // Ajoutez tous les autres cas avec 3 bébés...
+
+    // Cas avec 4 bébés
+    "9.1.1": 4,
+    "9.1.2": 4,
+    "9.1.3": 4,
+    "9.2.1": 4,
+    "9.2.2": 4,
+    "9.2.3": 4,
+    // Ajoutez tous les autres cas avec 4 bébés...
+
+    // Tous les autres cas ont 1 bébé
+  };
+
+  // Vérifie si le sous-cas sélectionné existe dans les correspondances
+  if (caseMappings[selectedSubCase]) {
+    const selectedCase = caseMappings[selectedSubCase];
+    const keys = Object.keys(selectedCase);
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+    const randomObject = selectedCase[randomKey];
+    const numberOfBabies = babyCounts[selectedSubCase] || 1;
+
+    const resultContainer = document.getElementById("seventhMonthResult");
+    resultContainer.innerHTML = "";
+
+    const conclusion = randomObject.conclusion;
+
+    for (let i = 1; i <= numberOfBabies; i++) {
+      const babyData = randomObject[`bebe${i}`];
+      const caption = numberOfBabies > 1 ? `<caption>Bébé n°${i}</caption>` : "";
+      const tableHTML = `
+        <table id="babyTable${i}">
+          ${caption}
+          <thead>
+            <tr>
+              <th>Élément observé</th>
+              <th>Observation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tdTitle">Position du fœtus</td>
+              <td>${babyData ? babyData.positionFoetus : ""}</td>
+            </tr>
+            <tr>
+              <td class="tdTitle">Taille estimée</td>
+              <td>${babyData ? babyData.tailleFoetus : ""}</td>
+            </tr>
+            <tr>
+              <td class="tdTitle">Placenta</td>
+              <td>${babyData ? babyData.placenta : ""}</td>
+            </tr>
+            <tr>
+              <td class="tdTitle">Interprétation</td>
+              <td>${babyData ? babyData.interpretation : ""}</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+      resultContainer.innerHTML += tableHTML;
+    }
+    document.getElementById("seventhMonthResult").classList.remove("hidden");
+    document.getElementById("seventhMonthClose").classList.remove("hidden");
+    const conclusionParagraph = document.createElement("p");
+
+    conclusionParagraph.innerHTML = `Cas n°<span class="important">${randomKey}</span><br><span class="rapport">Conclusion : </span>${conclusion}`;
+    resultContainer.appendChild(conclusionParagraph);
+  } else {
+    alert("Le sous-cas sélectionné est invalide.");
+  }
+}
+
+document
+  .getElementById("generateSeventhMonthButton")
+  .addEventListener("click", generateSeventhMonthReport);
 //? 7ème mois de grossesse <--
 
 //? Afficher toute la section au clic sur le bouton
