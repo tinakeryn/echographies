@@ -521,6 +521,8 @@ function getSubCaseOptions(caseNumber) {
   return subCaseOptions[caseNumber] || [];
 }
 
+// Fonction pour récupérer les sexes des bébés
+
 function generateSeventhMonthReport() {
   const subCaseSelector = document.getElementById("subCaseSelector");
   const selectedSubCase = String(subCaseSelector.value);
@@ -621,8 +623,15 @@ function generateSeventhMonthReport() {
     "4.2.1": 2,
     "4.2.2": 2,
     "4.2.3": 2,
-    // Ajoutez tous les autres cas avec 2 bébés...
-
+    "4.3.1": 2,
+    "4.3.2": 2,
+    "4.3.3": 2,
+    "4.4.1": 2,
+    "4.4.2": 2,
+    "4.4.3": 2,
+    "4.5.1": 2,
+    "4.5.2": 2,
+    "4.5.3": 2,
     // Cas avec 3 bébés
     "8.1.1": 3,
     "8.1.2": 3,
@@ -630,8 +639,15 @@ function generateSeventhMonthReport() {
     "8.2.1": 3,
     "8.2.2": 3,
     "8.2.3": 3,
-    // Ajoutez tous les autres cas avec 3 bébés...
-
+    "8.3.1": 3,
+    "8.3.2": 3,
+    "8.3.3": 3,
+    "8.4.1": 3,
+    "8.4.2": 3,
+    "8.4.3": 3,
+    "8.5.1": 3,
+    "8.5.2": 3,
+    "8.5.3": 3,
     // Cas avec 4 bébés
     "9.1.1": 4,
     "9.1.2": 4,
@@ -639,8 +655,15 @@ function generateSeventhMonthReport() {
     "9.2.1": 4,
     "9.2.2": 4,
     "9.2.3": 4,
-    // Ajoutez tous les autres cas avec 4 bébés...
-
+    "9.3.1": 4,
+    "9.3.2": 4,
+    "9.3.3": 4,
+    "9.4.1": 4,
+    "9.4.2": 4,
+    "9.4.3": 4,
+    "9.5.1": 4,
+    "9.5.2": 4,
+    "9.5.3": 4,
     // Tous les autres cas ont 1 bébé
   };
 
@@ -659,7 +682,18 @@ function generateSeventhMonthReport() {
 
     for (let i = 1; i <= numberOfBabies; i++) {
       const babyData = randomObject[`bebe${i}`];
-      const caption = numberOfBabies > 1 ? `<caption>Bébé n°${i}</caption>` : "";
+      const babySex = document.getElementById(`babySex${i}`).value;
+      if (babySex === "Féminin") {
+        babyGender = "Fille";
+      } else {
+        babyGender = "Garçon";
+      }
+
+      // const caption = numberOfBabies > 1 ? `<caption>Bébé ${babyGender} n°${i}</caption>` : "";
+      const caption =
+        numberOfBabies > 1
+          ? `<caption>Bébé ${babyGender} n°${i}</caption>`
+          : `<caption>Bébé ${babyGender}</caption>`;
       const tableHTML = `
         <table id="babyTable${i}">
           ${caption}

@@ -316,7 +316,6 @@ const fifthMonthCaseFour = {
   <span class="rapport">Diagnostic différentiel</span> : Les signes présents sur l'axe cérébral et cardiaque nécessitent d'explorer toute possibilité de malformations structurales ou fonctionnelles chez le deuxième fœtus.<br>
   <span class="rapport">Conduite à tenir</span> : Recommander une évaluation échographique spécialisée et, potentiellement, des investigations cliniques supplémentaires pour le deuxième fœtus. Maintenir des discussions ouvertes avec les parents pour aligner le plan de soin sur les découvertes et recommandations médicales.`,
   },
-  // Les autres sous-sous-cas suivent le même modèle avec des conclusions adaptées à chaque interprétation déjà listée
   "4.2.1": {
     bebe1: {
       morphologieCerebrale: "Non applicable",

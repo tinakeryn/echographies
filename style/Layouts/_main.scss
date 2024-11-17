@@ -164,14 +164,8 @@ main {
     #fifthMonthResult,
     #seventhMonthResult {
       table {
-        position: relative;
-        margin-top: 20px;
-        margin-bottom: 20px;
         caption {
           color: $six;
-          position: absolute;
-          left: -100px;
-          top: 8px;
           font-size: 1.2rem;
         }
         .tdTitle {
@@ -179,10 +173,32 @@ main {
         }
       }
     }
+    #thirdMonthResult,
     #fifthMonthResult {
+      table {
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        caption {
+          position: absolute;
+          left: -100px;
+          top: 8px;
+        }
+      }
+    }
+    #fifthMonthResult,
+    #seventhMonthResult {
       table {
         margin-top: -25px;
         margin-bottom: -30px;
+      }
+    }
+    #seventhMonthResult {
+      table {
+        width: 650px;
+        caption {
+          margin-bottom: 10px;
+        }
       }
     }
   }
