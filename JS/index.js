@@ -526,7 +526,6 @@ function getSubCaseOptions(caseNumber) {
 function generateSeventhMonthReport() {
   const subCaseSelector = document.getElementById("subCaseSelector");
   const selectedSubCase = String(subCaseSelector.value);
-
   if (!selectedSubCase) {
     alert("Veuillez sélectionner un sous-cas.");
     return;
@@ -685,8 +684,11 @@ function generateSeventhMonthReport() {
       const babySex = document.getElementById(`babySex${i}`).value;
       if (babySex === "Féminin") {
         babyGender = "Fille";
-      } else {
+      } else if (babySex === "Masculin") {
         babyGender = "Garçon";
+      } else {
+        alert("Veuillez remplir tous les champs");
+        return;
       }
 
       // const caption = numberOfBabies > 1 ? `<caption>Bébé ${babyGender} n°${i}</caption>` : "";
