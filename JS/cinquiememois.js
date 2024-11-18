@@ -563,9 +563,9 @@ const fifthMonthCaseFive = {
     interpretation:
       "Anomalies neurologiques à surveiller en raison de l'activité cardiaque faible et du liquide amniotique réduit.",
     conclusion: `
-  <span class="rapport">Conclusion</span> : Depuis le début de la grossesse, des signes préoccupants sont apparus, notamment des anomalies neurologiques et orthopédiques.<br>
-  <span class="rapport">Diagnostic différentiel</span> : Les dilatations ventriculaires et la courbure vertébrale peuvent indiquer des problèmes neurologiques sérieux qui nécessitent une enquête approfondie.<br>
-  <span class="rapport">Conduite à tenir</span> : Mettre en place un programme de suivi échographique intensif pour surveiller la progression cérébrale et cardiaque. Consulter un expert en neurologie fœtale pour définir un plan d'intervention approprié.`,
+<span class="rapport">Conclusion</span> : Depuis le début de la grossesse, des signes préoccupants sont apparus, notamment des anomalies neurologiques et orthopédiques.<br>
+<span class="rapport">Diagnostic différentiel</span> : Les dilatations ventriculaires et la courbure vertébrale peuvent indiquer des problèmes neurologiques sérieux qui nécessitent une enquête approfondie.<br>
+<span class="rapport">Conduite à tenir</span> : Mettre en place un programme de suivi échographique intensif pour surveiller la progression cérébrale et cardiaque. Consulter un expert en neurologie fœtale pour définir un plan d'intervention approprié.`,
   },
   "5.1.2": {
     morphologieCerebrale: "Dilatation ventriculaire",
@@ -575,21 +575,20 @@ const fifthMonthCaseFive = {
     interpretation:
       "Les anomalies détectées nécessitent un suivi intensif, avec des signes de développement neuro-musculaire impacté.",
     conclusion: `
-  <span class="rapport">Conclusion</span> : Le développement fœtal montre de multiples préoccupations depuis le début de la grossesse, avec des anomalies ventriculaires et motrices détectées.<br>
-  <span class="rapport">Diagnostic différentiel</span> : Ces anomalies pourraient être liées à des troubles du développement neurologique ou une mauvaise coordination neuromusculaire.<br>
-  <span class="rapport">Conduite à tenir</span> : Des tests approfondis en neurologie et en orthopédie doivent être envisagés. Maintenir un lien étroit avec les spécialistes pour aligner les stratégies de traitement et de suivi.`,
+<span class="rapport">Conclusion</span> : Le développement fœtal montre de multiples préoccupations depuis le début de la grossesse, avec des anomalies ventriculaires et motrices détectées.<br>
+<span class="rapport">Diagnostic différentiel</span> : Ces anomalies pourraient être liées à des troubles du développement neurologique ou une mauvaise coordination neuromusculaire.<br>
+<span class="rapport">Conduite à tenir</span> : Des tests approfondis en neurologie et en orthopédie doivent être envisagés. Maintenir un lien étroit avec les spécialistes pour aligner les stratégies de traitement et de suivi.`,
   },
   "5.1.3": {
-    morphologieCerebrale: "Asymétrie ventriculaire",
-    colonneVertebrale: "Alignement compromis",
-    membres: "Mouvements restreints",
-    placenta: "Marginal",
+    morphologieCerebrale: "Développement normal",
+    colonneVertebrale: "Alignement correct",
+    membres: "Activité motrice normale",
+    placenta: "Postérieur",
     interpretation:
-      "L'ensemble des observations suggère des risques neurologiques et orthopédiques potentiels.",
+      "L'évolution montre une amélioration significative avec un développement neurologique et orthopédique rassurant.",
     conclusion: `
-  <span class="rapport">Conclusion</span> : Les observations depuis la première échographie montrent des anomalies continues dans le développement du fœtus, particulièrement au niveau neurologique et orthopédique.<br>
-  <span class="rapport">Diagnostic différentiel</span> : L'asymétrie des ventricules suggère des atteintes potentiellement évolutives au niveau neurologique, augmentant le risque de complications.<br>
-  <span class="rapport">Conduite à tenir</span> : Organiser des consultations ciblées avec des neurologues pédiatriques et des experts en chirurgie orthopédique. Une surveillance étroite et des suivis échographiques fréquents sont cruciaux pour ajuster les mesures d'intervention.`,
+<span class="rapport">Conclusion</span> : Depuis la dernière échographie, l'évolution montre une stabilisation et une amélioration des indicateurs, avec un développement aligné sur les normes attendues.<br>
+<span class="rapport">Conduite à tenir</span> : Continuer les échographies régulières pour surveiller le développement du fœtus. Poursuivre un suivi prénatal régulier pour garantir que les conditions restent favorables à la croissance saine du fœtus.`,
   },
   "5.2.1": {
     morphologieCerebrale: "Normale",
@@ -599,8 +598,8 @@ const fifthMonthCaseFive = {
     interpretation:
       "Le développement du fœtus est normal avec aucune anomalie morphologique détectée.",
     conclusion: `
-  <span class="rapport">Conclusion</span> : Depuis la première échographie, le fœtus présente une trajectoire de développement positive, sans anomalie notable.<br>
-  <span class="rapport">Conduite à tenir</span> : Continuer les visites prénatales régulières et les échographies pour surveiller la progression du fœtus jusqu'à la prochaine évaluation au 7ème mois. Les soins prénataux doivent rester conformes pour maintenir cette évolution saine.`,
+<span class="rapport">Conclusion</span> : Depuis la première échographie, le fœtus présente une trajectoire de développement positive, sans anomalie notable.<br>
+<span class="rapport">Conduite à tenir</span> : Continuer les visites prénatales régulières et les échographies pour surveiller la progression du fœtus jusqu'à la prochaine évaluation au 7ème mois. Les soins prénataux doivent rester conformes pour maintenir cette évolution saine.`,
   },
   "5.2.2": {
     morphologieCerebrale: "Développement normal",
@@ -610,8 +609,8 @@ const fifthMonthCaseFive = {
     interpretation:
       "L'absence d'anomalies est rassurante ; l'évolution du fœtus se poursuit normalement.",
     conclusion: `
-  <span class="rapport">Conclusion</span> : Le fœtus évolue de manière régulière, avec des indicateurs de croissance sains et cohérents depuis le début de la grossesse.<br>
-  <span class="rapport">Conduite à tenir</span> : Poursuivre les échographies prénatales et suivis de routine pour garantir que la grossesse évolue sans problème jusqu'à la prochaine échographie au 7ème mois. Renforcer l'importance d'un suivi prénatal convenable.`,
+<span class="rapport">Conclusion</span> : Le fœtus évolue de manière régulière, avec des indicateurs de croissance sains et cohérents depuis le début de la grossesse.<br>
+<span class="rapport">Conduite à tenir</span> : Poursuivre les échographies prénatales et suivis de routine pour garantir que la grossesse évolue sans problème jusqu'à la prochaine échographie au 7ème mois. Renforcer l'importance d'un suivi prénatal convenable.`,
   },
   "5.2.3": {
     morphologieCerebrale: "Symétrie parfaite",
@@ -620,8 +619,8 @@ const fifthMonthCaseFive = {
     placenta: "Positionnement favorable",
     interpretation: "Aucune anomalie décelée ; croissance conforme aux attentes.",
     conclusion: `
-  <span class="rapport">Conclusion</span> : Le développement du fœtus a été suivi de manière positive depuis la première échographie avec une symétrie parfaite et un pronostic rassurant.<br>
-  <span class="rapport">Conduite à tenir</span> : Continuer les pratiques prénatales habituelles et les échographies régulières jusqu'à l'évaluation prévue au 7ème mois pour s'assurer du bien-être et de la bonne progression du fœtus.`,
+<span class="rapport">Conclusion</span> : Le développement du fœtus a été suivi de manière positive depuis la première échographie avec une symétrie parfaite et un pronostic rassurant.<br>
+<span class="rapport">Conduite à tenir</span> : Continuer les pratiques prénatales habituelles et les échographies régulières jusqu'à l'évaluation prévue au 7ème mois pour s'assurer du bien-être et de la bonne progression du fœtus.`,
   },
 };
 const fifthMonthCaseSix = {
@@ -1157,37 +1156,37 @@ const fifthMonthCaseNine = {
   },
   "9.2.1": {
     bebe1: {
-      morphologieCerebrale: "Légère asymétrie",
-      colonneVertebrale: "Normale",
-      membres: "Activité correcte",
+      morphologieCerebrale: "Normale",
+      colonneVertebrale: "Alignement correct",
+      membres: "Mobilité active",
       placenta: "Antérieur",
-      interpretation: "Suivi recommandé pour légère asymétrie détectée.",
+      interpretation: "Développement fœtal approprié sans anomalies.",
     },
     bebe2: {
-      morphologieCerebrale: "Développement harmonieux",
+      morphologieCerebrale: "Symétrique",
       colonneVertebrale: "Structure normale",
-      membres: "Mobilité normale",
-      placenta: "Postérieur",
-      interpretation: "Évolution sans anomalie détectée.",
+      membres: "Activité normale",
+      placenta: "Latéral gauche",
+      interpretation: "Croissance saine avec bonne symétrie.",
     },
     bebe3: {
-      morphologieCerebrale: "Forme régulière",
-      colonneVertebrale: "Déviation mineure",
-      membres: "Mobilité correcte",
-      placenta: "Latéral gauche",
-      interpretation: "Suivi conseillé pour déviation mineure observée.",
+      morphologieCerebrale: "Suspicion de malformation",
+      colonneVertebrale: "Anomalie détectée",
+      membres: "Activité réduite",
+      placenta: "Postérieur",
+      interpretation:
+        "Une anomalie et une faible activité motrice nécessitent une surveillance continue.",
     },
     bebe4: {
-      morphologieCerebrale: "Développement normal",
-      colonneVertebrale: "Alignement adéquat",
-      membres: "Tonicité normale",
-      placenta: "Positionnement favorable",
-      interpretation: "Aucun signe de préoccupation.",
+      morphologieCerebrale: "Normale",
+      colonneVertebrale: "Développement correct",
+      membres: "Mobilité satisfaisante",
+      placenta: "Latéral droit",
+      interpretation: "Évolution standard et satisfaisante.",
     },
     conclusion: `
-  <span class="rapport">Conclusion</span> : Depuis la première échographie, la grossesse multiple montre un développement globalement positif. Bébé 1 présente une légère asymétrie nécessitant un suivi rapproché, tandis que les autres fœtus évoluent normalement.<br>
-  <span class="rapport">Diagnostic différentiel</span> : L'asymétrie de Bébé 1 pourrait indiquer une altération structurelle portant sur l'équilibre cérébral, qui doit être examinée.<br>
-  <span class="rapport">Conduite à tenir</span> : Proposer un examen échographique approfondi pour Bébé 1 avec des consultations régulières. Assurer une surveillance continue pour les autres bébés pour garantir la meilleure issue possible jusqu'à l'accouchement.`,
+<span  class="rapport">Conclusion</span> : Alors que les fœtus 1, 2, et 4 affichent un développement satisfaisant, le fœtus 3 continue de nécessiter une attention particulière en raison de la suspicion de malformation observée.<br>
+<span  class="rapport">Conduite à tenir</span> : Avoir un suivi échographique régulier pour Bébé 3, et maintenir des visites prénatales habituelles pour les autres fœtus.`,
   },
   "9.2.2": {
     bebe1: {
@@ -1205,11 +1204,12 @@ const fifthMonthCaseNine = {
       interpretation: "Norme de développement conforme.",
     },
     bebe3: {
-      morphologieCerebrale: "Régulière",
-      colonneVertebrale: "Alignement normal",
-      membres: "Mobilité active",
+      morphologieCerebrale: "Suspicion de malformation",
+      colonneVertebrale: "Structure anormale",
+      membres: "Activité réduite",
       placenta: "Postérieur",
-      interpretation: "Progression normale des fœtus.",
+      interpretation:
+        "Les résultats soulignent un besoin d'examens approfondis pour confirmer les malformations suspectées.",
     },
     bebe4: {
       morphologieCerebrale: "Normale",
@@ -1219,8 +1219,8 @@ const fifthMonthCaseNine = {
       interpretation: "Bon développement constaté.",
     },
     conclusion: `
-  <span class="rapport">Conclusion</span> : Les échographies depuis le début de la grossesse indiquent un développement stable avec toutes les normes respectées par les fœtus.<br>
-  <span class="rapport">Conduite à tenir</span> : Poursuivre les échographies de routine pour surveiller la croissance collective des fœtus jusqu'à la période prénatale finale, en garantissant ainsi les soins optimums.`,
+<span  class="rapport">Conclusion</span> : Les échographies depuis le début de la grossesse indiquent un développement stable pour trois bébés, tandis que Bébé 3 nécessite encore une investigation en raison de signes de malformation.<br>
+<span  class="rapport">Conduite à tenir</span> : Maintenir une surveillance serrée et procéder à des évaluations spécialisées pour Bébé 3 afin de déterminer l'approche optimale.`,
   },
   "9.2.3": {
     bebe1: {
@@ -1238,11 +1238,12 @@ const fifthMonthCaseNine = {
       interpretation: "Progrès de développement sans failles.",
     },
     bebe3: {
-      morphologieCerebrale: "Normale",
-      colonneVertebrale: "Développement normal",
-      membres: "Tonicité normale",
+      morphologieCerebrale: "Anomalies suspectées",
+      colonneVertebrale: "Anomalie visible",
+      membres: "Faible tonicité",
       placenta: "Antérieur",
-      interpretation: "Paramètres de croissance normatifs.",
+      interpretation:
+        "Signe persistant d'anomalies nécessitant une analyse spécialisée approfondie.",
     },
     bebe4: {
       morphologieCerebrale: "Régulière",
@@ -1252,8 +1253,8 @@ const fifthMonthCaseNine = {
       interpretation: "Bonne santé prénatale observée.",
     },
     conclusion: `
-  <span class="rapport">Conclusion</span> : Le suivi depuis le début de la grossesse confirme une croissance harmonieuse des quatre bébés, tous les indicateurs étant dans les normes attendues.<br>
-  <span class="rapport">Conduite à tenir</span> : Continuer avec une surveillance prénatale standard, complétée par des échographies régulières pour suivre la progression vers la naissance, afin d'assurer le bien-être des bébés.`,
+<span  class="rapport">Conclusion</span> : Le suivi depuis le début de la grossesse confirme une nécessité accrue d'examens prénataux pour Bébé 3, tandis que les autres se développent dans les normes attendues.<br>
+<span  class="rapport">Conduite à tenir</span> : Des consultations supplémentaires avec des spécialistes en médecine materno-fœtale sont recommandées pour Bébé 3.`,
   },
   "9.3.1": {
     bebe1: {
@@ -1264,11 +1265,11 @@ const fifthMonthCaseNine = {
       interpretation: "Développement normal sans anomalies.",
     },
     bebe2: {
-      morphologieCerebrale: "Développement normal",
+      morphologieCerebrale: "Symétrie détectée",
       colonneVertebrale: "Aucune anomalie",
       membres: "Mobilité active",
       placenta: "Latéral droit",
-      interpretation: "Progression saine conforme aux normes.",
+      interpretation: "Progression saine et satisfaisante.",
     },
     bebe3: {
       morphologieCerebrale: "Conforme aux attentes",
@@ -1278,49 +1279,48 @@ const fifthMonthCaseNine = {
       interpretation: "Évolution stable sans complications.",
     },
     bebe4: {
-      morphologieCerebrale: "Développement homogène",
-      colonneVertebrale: "Structure normale",
-      membres: "Activité satisfaisante",
+      morphologieCerebrale: "Non applicable",
+      colonneVertebrale: "Non applicable",
+      membres: "Non applicable",
       placenta: "Positionnement favorable",
-      interpretation: "Croissance appropriée aux stades prénataux.",
+      interpretation: "Fœtus décédé in-utero.",
     },
     conclusion: `
-  <span class="rapport">Conclusion</span> : Depuis la première échographie, tous les fœtus démontrent un développement positif, chaque examen successif confirmant des normes de croissance attendues sans anomalie.<br>
-  <span class="rapport">Conduite à tenir</span> : Maintenir les échographies et ressources attendues dans la routine prénatale pour assurer une progression continue jusqu'à la naissance, maintenant la stabilité observée dans ces contrôles.`,
+<span  class="rapport">Conclusion</span> : Les trois premiers fœtus continuent de se développer normalement, tandis que le quatrième fœtus est confirmé comme décédé in-utero.<br>
+<span  class="rapport">Conduite à tenir</span> : Prioriser le soutien émotionnel et médical de la patiente, tout en continuant une surveillance régulière pour les trois fœtus restants.`,
   },
   "9.3.2": {
     bebe1: {
-      morphologieCerebrale: "Légère déformation",
+      morphologieCerebrale: "Légère symétrie",
       colonneVertebrale: "Structure stable",
       membres: "Mobilité normale",
       placenta: "Latéral gauche",
-      interpretation: "Surveillance requise en raison de déformation détectée.",
+      interpretation: "Développement cérébral aligné aux attentes.",
     },
     bebe2: {
       morphologieCerebrale: "Forme correcte",
       colonneVertebrale: "Alignement adéquat",
       membres: "Activité normale",
       placenta: "Antérieur",
-      interpretation: "Croissance normale au niveau morphologique.",
+      interpretation: "Croissance stable et saine.",
     },
     bebe3: {
-      morphologieCerebrale: "Développement conforme",
+      morphologieCerebrale: "Conforme aux attentes",
       colonneVertebrale: "Aucune anomalie",
-      membres: "Mobilité normale",
+      membres: "Mobilité adéquate",
       placenta: "Postérieur",
-      interpretation: "Progression fœtale adéquate.",
+      interpretation: "Progression stable fœtale constatée.",
     },
     bebe4: {
-      morphologieCerebrale: "Normale",
-      colonneVertebrale: "Développement adéquat",
-      membres: "Activité satisfaisante",
+      morphologieCerebrale: "Non applicable",
+      colonneVertebrale: "Non applicable",
+      membres: "Non applicable",
       placenta: "Positionnement favorable",
-      interpretation: "Bon suivi prénatal observé.",
+      interpretation: "Fœtus décédé in-utero.",
     },
     conclusion: `
-  <span class="rapport">Conclusion</span> : Bébé 1 nécessite une attention supplémentaire pour une déformation légère, bien que les autres fœtus montrent un développement sain.<br>
-  <span class="rapport">Diagnostic différentiel</span> : La légère déformation cérébrale de Bébé 1 pourrait justifier des investigations approfondies pour exclure des troubles fondamentaux potentiels.<br>
-  <span class="rapport">Conduite à tenir</span> : Engager une surveillance étroite pour Bébé 1 par échographie approfondie et consultations spécialisées, tout en maintenant la vigilance sur l'évolution normale des fœtus restants.`,
+<span  class="rapport">Conclusion</span> : La progression des trois bébés est conforme aux attentes ; toutefois, la gestion du fœtus décédé mérite une attention particulière.<br>
+<span  class="rapport">Conduite à tenir</span> : Assurer un suivi prénatal régulier et offrir du soutien psychologique à la patiente.`,
   },
   "9.3.3": {
     bebe1: {
@@ -1328,32 +1328,32 @@ const fifthMonthCaseNine = {
       colonneVertebrale: "Alignement normal",
       membres: "Activité correcte",
       placenta: "Antérieur",
-      interpretation: "Croissance continue sans anomalies.",
+      interpretation: "Bonne croissance continue sans anomalies.",
     },
     bebe2: {
       morphologieCerebrale: "Régulière",
       colonneVertebrale: "Structure normale",
       membres: "Mobilité active",
       placenta: "Latéral droit",
-      interpretation: "Paramètres de développement conformes aux attentes.",
+      interpretation: "Développement conforme aux normes.",
     },
     bebe3: {
       morphologieCerebrale: "Conforme aux attentes",
       colonneVertebrale: "Développement normal",
       membres: "Tonicité adéquate",
       placenta: "Postérieur",
-      interpretation: "Stabilité prénatale prouvée.",
+      interpretation: "Stabilité retenue dans les paramètres prénataux.",
     },
     bebe4: {
-      morphologieCerebrale: "Symétrique",
-      colonneVertebrale: "Aucune anomalie",
-      membres: "Activité satisfaisante",
+      morphologieCerebrale: "Non applicable",
+      colonneVertebrale: "Non applicable",
+      membres: "Non applicable",
       placenta: "Positionnement favorable",
-      interpretation: "Progrès harmonieux au cours des étapes prénatales.",
+      interpretation: "Fœtus décédé in-utero.",
     },
     conclusion: `
-  <span class="rapport">Conclusion</span> : Durant la durée de la grossesse prénatale, les quatre fœtus n'ont manifesté aucune complication notée, se développant selon les paramètres projetés.<br>
-  <span class="rapport">Conduite à tenir</span> : Continuer la surveillance systémique et les services prénataux réguliers pour maintenir des résultats similaires à travers les stades de la grossesse et jusqu'à l'accouchement.`,
+<span  class="rapport">Conclusion</span> : Le développement harmonieux se poursuit pour les fœtus 1, 2, et 3, avec soutien nécessaire pour la gestion du fœtus 4, mort in-utero.<br>
+<span  class="rapport">Conduite à tenir</span> : Poursuivre les ressources prénatales et gestion émotionnelle adaptée pour la patiente.`,
   },
   "9.4.1": {
     bebe1: {
@@ -1456,64 +1456,61 @@ const fifthMonthCaseNine = {
       colonneVertebrale: "Structure correcte",
       membres: "Tonicité adéquate",
       placenta: "Latéral gauche",
-      interpretation: "Aucun problème détecté.",
+      interpretation: "Développement sain observé, sans anomalies.",
     },
     bebe2: {
-      morphologieCerebrale: "Développement harmonieux",
-      colonneVertebrale: "Aucune anomalie",
+      morphologieCerebrale: "Harmonieux",
+      colonneVertebrale: "Alignement correct",
       membres: "Mobilité normale",
       placenta: "Antérieur",
-      interpretation: "Pas d'anomalies apparentes.",
+      interpretation: "Développement conforme aux attentes prénatales.",
     },
     bebe3: {
-      morphologieCerebrale: "Conforme aux attentes",
+      morphologieCerebrale: "Conforme",
       colonneVertebrale: "Alignement normal",
-      membres: "Activité correcte",
+      membres: "Activité normale",
       placenta: "Postérieur",
-      interpretation: "Croissance conforme aux normes.",
+      interpretation: "Croissance adéquate non problématique.",
     },
     bebe4: {
-      morphologieCerebrale: "Développement limité",
-      colonneVertebrale: "Observations à confirmer",
-      membres: "Mobilité très faible",
+      morphologieCerebrale: "Adéquate",
+      colonneVertebrale: "Alignement adéquat",
+      membres: "Mobilité normale",
       placenta: "Positionnement favorable",
-      interpretation: "Développement limité nécessitant un suivi approfondi.",
+      interpretation: "Développement approprié.",
     },
-    conclusion: `<span class="rapport">Conclusion</span> : Parmi les quatre fœtus, le développement de Bébé 4 nécessite une attention particulière due à des signes de croissance limitée.<br><span class="rapport">Diagnostic différentiel</span> : Le développement limité chez Bébé 4 pourrait indiquer un trouble de croissance ou une anomalie structurelle, nécessitant plus d'investigations.<br><span class="rapport">Conduite à tenir</span> : Des échographies ciblées et un suivi médical spécialisé sont conseillés pour Bébé 4 afin d'anticiper d'éventuelles interventions. Poursuivre les contrôles prénataux standards pour les autres bébés et surveiller leur progression régulière.`,
+    conclusion: `<span class="rapport">Conclusion</span> : Tous les fœtus maintiennent un développement sain, conforme aux évaluations précédentes.<br><span class="rapport">Conduite à tenir</span> : Poursuivre les visites de routine et maintenir une surveillance prénatale afin de s'assurer de la constance de cette progression positive.`,
   },
   "9.5.2": {
     bebe1: {
-      morphologieCerebrale: "Développement homogène",
-      colonneVertebrale: "Alignement normal",
-      membres: "Activité correcte",
+      morphologieCerebrale: "Homogène",
+      colonneVertebrale: "Structure correcte",
+      membres: "Activité normale",
       placenta: "Antérieur",
-      interpretation: "Stable et conforme.",
+      interpretation: "Stable et conforme au développement attendu.",
     },
     bebe2: {
       morphologieCerebrale: "Régulière",
-      colonneVertebrale: "Structure normale",
+      colonneVertebrale: "Aucune anomalie",
       membres: "Mobilité active",
       placenta: "Latéral droit",
-      interpretation: "Pas d'anomalie identifiée.",
+      interpretation: "Pas de déviation observée.",
     },
     bebe3: {
-      morphologieCerebrale: "Conforme aux attentes",
-      colonneVertebrale: "Aucune anomalie",
+      morphologieCerebrale: "Conforme",
+      colonneVertebrale: "Structure correcte",
       membres: "Tonicité normale",
       placenta: "Postérieur",
-      interpretation: "Développement sans particularités.",
+      interpretation: "Croissance dans les normes.",
     },
     bebe4: {
-      morphologieCerebrale: "Observations nécessaires",
-      colonneVertebrale: "Légère déviation",
-      membres: "Mobilité très limitée",
+      morphologieCerebrale: "Normale",
+      colonneVertebrale: "Structure correcte",
+      membres: "Mobilité normale",
       placenta: "Latéral gauche",
-      interpretation: "Évaluation spécifiquement requise.",
+      interpretation: "Aucun problème détecté.",
     },
-    conclusion: `
-  <span class="rapport">Conclusion</span> : Les trois premiers bébés atteignent les jalons développementaux attendus, mais Bébé 4 doit être évalué plus en détail.<br>
-  <span class="rapport">Diagnostic différentiel</span> : Le manque de mobilité chez Bébé 4 pourrait signaler un trouble neuromusculaire qui nécessite des examens supplémentaires.<br>
-  <span class="rapport">Conduite à tenir</span> : Impliquer des spécialistes pour évaluer Bébé 4, et poursuivre les échographies de routine pour s'assurer du bien-être des trois autres. Renégocier les soins prénataux si nécessaire.`,
+    conclusion: `<span class="rapport">Conclusion</span> : Le développement stable des quatre fœtus continue d'être sans aucunes complications notées.<br><span class="rapport">Conduite à tenir</span> : Maintenir des échographies régulières pour surveiller la santé et la croissance continue de chaque fœtus.`,
   },
   "9.5.3": {
     bebe1: {
@@ -1531,21 +1528,19 @@ const fifthMonthCaseNine = {
       interpretation: "Sans complications.",
     },
     bebe3: {
-      morphologieCerebrale: "Conforme aux attentes",
+      morphologieCerebrale: "Conforme",
       colonneVertebrale: "Structure normale",
       membres: "Tonicité correcte",
       placenta: "Postérieur",
       interpretation: "Aucun problème détecté.",
     },
     bebe4: {
-      morphologieCerebrale: "Anomalie détectée",
-      colonneVertebrale: "Observations à confirmer",
-      membres: "Mobilité très limitée",
+      morphologieCerebrale: "Symétrique",
+      colonneVertebrale: "Alignement normal",
+      membres: "Activité normale",
       placenta: "Positionnement favorable",
-      interpretation: "Présence d'anomalies nécessitant des examens approfondis.",
+      interpretation: "Développement conforme aux attentes.",
     },
-    conclusion: `<span class="rapport">Conclusion</span> : Alors que trois des fœtus maintiennent un développement normal, Bébé 4 présente des anomalies qui nécessitent une évaluation attentive.<br>
-  <span class="rapport">Diagnostic différentiel</span> : Les anomalies chez Bébé 4 peuvent indiquer un développement atypique nécessitant une intervention potentielle.<br>
-  <span class="rapport">Conduite à tenir</span> : Conduire des enquêtes cliniques approfondies sur Bébé 4. Continuer un soutien prénatal constant et des contrôles réguliers pour les autres bébés avec des visites échographiques régulières.`,
+    conclusion: `<span class="rapport">Conclusion</span> : Le développement de tous les fœtus se poursuit sainement, sans complications supplémentaires.<br><span class="rapport">Conduite à tenir</span> : Continuer le suivi prénatal standard, garantissant des contrôles développementaux réguliers pour tous les fœtus.`,
   },
 };
