@@ -311,6 +311,7 @@ const caseMapping = {
   8.3: fifthMonthCaseEight,
   8.5: fifthMonthCaseEight,
   9.1: fifthMonthCaseNine,
+  9.2: fifthMonthCaseNine,
   9.3: fifthMonthCaseNine,
   9.4: fifthMonthCaseNine,
   9.5: fifthMonthCaseNine,
