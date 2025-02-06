@@ -30,49 +30,20 @@
 
       <section class="container" id="firstMonthSection">
         <h2>Premier mois</h2>
-        <p>Appuyez sur le bouton pour obtenir résultat d'échographie du 1er mois</p>
+        <p>Appuyez sur le bouton pour obtenir le résultat d'échographie du 1er mois</p>
+        <form>
+          <div id="labThirdMonthCaseContainer">
+            <label for="labThirdMonthCaseNumber">Cas fourni par le laboratoire</label>
+            <input type="text" id="labThirdMonthCaseNumber" placeholder="Ex: 1.1" />
+          </div>
+        </form>
         <button id="generateFirstMonthButton">Générer écho 1er mois</button>
         <i id="firstMonthClose" class="fa-solid fa-xmark hidden"></i>
         <div class="hidden result" id="firstMonthResult">
-          <table>
-            <thead>
-              <tr>
-                <th>Élément observé</th>
-                <th>Observation</th>
-                <th>Résultat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="tdTitle">Sac Gestationnel</td>
-                <td id="sacObs"></td>
-                <td id="sacRes"></td>
-              </tr>
-              <tr>
-                <td class="tdTitle">Vésicule Vitelline</td>
-                <td id="vesObs"></td>
-                <td id="vesRes"></td>
-              </tr>
-              <tr>
-                <td class="tdTitle">Nombre d'Embryon</td>
-                <td id="embObs"></td>
-                <td id="embRes"></td>
-              </tr>
-              <tr>
-                <td class="tdTitle">Implantation</td>
-                <td id="implObs"></td>
-                <td id="implRes"></td>
-              </tr>
-              <tr>
-                <td class="tdTitle">Anomalie Visible</td>
-                <td id="anomObs"></td>
-                <td id="anomRes"></td>
-              </tr>
-            </tbody>
-          </table>
-          <p id="firstMonthEvolution" class="hidden"></p>
+          <!-- Résultats de l'échographie -->
         </div>
       </section>
+
       <section class="container" id="thirdMonthSection">
         <h2>3ème mois</h2>
         <form>

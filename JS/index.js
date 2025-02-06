@@ -44,28 +44,84 @@ function scrollToSection(buttonId, sectionId) {
 
 //? --> 1er mois de grossesse
 //* Générer un compte-rendu d'échographie 1er mois
+const labThirdMonthCaseInput = document.getElementById("labThirdMonthCaseNumber");
+
+// Déclencher la génération avec la touche Entrée
+labThirdMonthCaseInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("generateFirstMonthButton").click();
+  }
+});
+
+// Générer l'écho du 1er mois
 document.getElementById("generateFirstMonthButton").addEventListener("click", function () {
-  const randomIndex = Math.floor(Math.random() * echographieResults.length);
-  const randomResult = echographieResults[randomIndex];
+  const selectedSubCase = labThirdMonthCaseInput.value.trim();
 
-  document.getElementById("sacObs").textContent = randomResult.sacGestationnel.taille;
-  document.getElementById("sacRes").textContent = randomResult.sacGestationnel.detail;
-  document.getElementById("vesObs").textContent = randomResult.vesiculeVitelline.etat;
-  document.getElementById("vesRes").textContent = randomResult.vesiculeVitelline.detail;
-  document.getElementById("embObs").textContent = randomResult.nombreEmbryon.nombre;
-  document.getElementById("embRes").textContent = randomResult.nombreEmbryon.detail;
-  document.getElementById("implObs").textContent = randomResult.implantation.etat;
-  document.getElementById("implRes").textContent = randomResult.implantation.detail;
-  document.getElementById("anomObs").textContent = randomResult.anomalieVisible.etat;
-  document.getElementById("anomRes").textContent = randomResult.anomalieVisible.detail;
+  if (selectedSubCase.match(/^\d+\.\d+$/)) {
+    const selectedMainCase = parseInt(selectedSubCase.split(".")[0]); // Extraire le chiffre avant le point
 
-  document.getElementById(
-    "firstMonthEvolution"
-  ).innerHTML = `Cas n°<span class="important">${randomResult.numero}</span><br><br>${randomResult.evolution}`;
+    const selectedResult = echographieResults.find((result) => result.numero == selectedMainCase);
 
-  document.getElementById("firstMonthResult").classList.remove("hidden");
-  document.getElementById("firstMonthClose").classList.remove("hidden");
-  document.getElementById("firstMonthEvolution").classList.remove("hidden");
+    if (selectedResult) {
+      const tableHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Élément observé</th>
+              <th>Observation</th>
+              <th>Résultat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tdTitle">Sac Gestationnel</td>
+              <td id="sacObs">${selectedResult.sacGestationnel.detail}</td>
+              <td id="sacRes">${selectedResult.sacGestationnel.taille}</td>
+            </tr>
+            <tr>
+              <td class="tdTitle">Vésicule Vitelline</td>
+              <td id="vesObs">${selectedResult.vesiculeVitelline.detail}</td>
+              <td id="vesRes">${selectedResult.vesiculeVitelline.etat}</td>
+            </tr>
+            <tr>
+              <td class="tdTitle">Nombre d'Embryon</td>
+              <td id="embObs">${selectedResult.nombreEmbryon.detail}</td>
+              <td id="embRes">${selectedResult.nombreEmbryon.nombre}</td>
+            </tr>
+            <tr>
+              <td class="tdTitle">Implantation</td>
+              <td id="implObs">${selectedResult.implantation.detail}</td>
+              <td id="implRes">${selectedResult.implantation.etat}</td>
+            </tr>
+            <tr>
+              <td class="tdTitle">Anomalie Visible</td>
+              <td id="anomObs">${selectedResult.anomalieVisible.detail}</td>
+              <td id="anomRes">${selectedResult.anomalieVisible.etat}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p id="firstMonthEvolution">${selectedResult.evolution}</p>
+      `;
+
+      const resultContainer = document.getElementById("firstMonthResult");
+      resultContainer.innerHTML = tableHTML;
+      resultContainer.classList.remove("hidden");
+      showNextElement("generateFirstMonthButton");
+      document.getElementById("firstMonthClose").classList.remove("hidden");
+    } else {
+      alert("Données non trouvées pour ce cas.");
+    }
+  } else {
+    alert("Veuillez entrer un cas valide au format x.y.");
+  }
+});
+
+// Gestion du bouton Fermer
+document.getElementById("firstMonthClose").addEventListener("click", function () {
+  const resultContainer = document.getElementById("firstMonthResult");
+  resultContainer.classList.add("hidden");
+  hideElements(["firstMonthClose"]);
 });
 //? 1er mois de grossesse <--
 
