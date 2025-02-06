@@ -46,6 +46,42 @@ function scrollToSection(buttonId, sectionId) {
 //* Générer un compte-rendu d'échographie 1er mois
 const labThirdMonthCaseInput = document.getElementById("labThirdMonthCaseNumber");
 
+// Ajouter une liste de suggestions dynamiques
+document.addEventListener("DOMContentLoaded", function () {
+  const datalist = document.createElement("datalist");
+  datalist.id = "caseSuggestions";
+  document.body.appendChild(datalist);
+  labThirdMonthCaseInput.setAttribute("list", "caseSuggestions");
+});
+
+labThirdMonthCaseInput.addEventListener("input", function () {
+  const value = labThirdMonthCaseInput.value.trim();
+  const datalist = document.getElementById("caseSuggestions");
+  datalist.innerHTML = "";
+
+  if (value) {
+    let suggestions = [];
+
+    if (value.includes(".")) {
+      const [mainCase] = value.split(".");
+      if (firstMonthCaseOptions[mainCase]) {
+        suggestions = firstMonthCaseOptions[mainCase];
+      }
+    } else {
+      const mainKeys = Object.keys(firstMonthCaseOptions);
+      suggestions = mainKeys
+        .filter((key) => key.startsWith(value))
+        .flatMap((key) => firstMonthCaseOptions[key]);
+    }
+
+    suggestions.forEach((suggestion) => {
+      const option = document.createElement("option");
+      option.value = suggestion;
+      datalist.appendChild(option);
+    });
+  }
+});
+
 // Déclencher la génération avec la touche Entrée
 labThirdMonthCaseInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
