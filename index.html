@@ -39,7 +39,7 @@
         <button id="generateFirstMonthButton">Générer écho 1er mois</button>
         <i id="firstMonthClose" class="fa-solid fa-xmark hidden"></i>
         <div class="hidden result" id="firstMonthResult">
-          <!-- Résultats de l'échographie -->
+          <!-- Résultats de l'échographie du 1er mois-->
         </div>
       </section>
       <section class="container" id="thirdMonthSection">
@@ -53,37 +53,33 @@
         </form>
         <button id="generateThirdMonthButton">Générer écho 3ème mois</button>
         <i id="thirdMonthClose" class="fa-solid fa-xmark hidden"></i>
-        <div class="hidden result" id="thirdMonthResult"></div>
+        <div class="hidden result" id="thirdMonthResult">
+          <!-- Résultats de l'échographie du 3ème mois-->
+        </div>
       </section>
       <section class="container" id="fifthMonthSection">
         <h2>5ème mois</h2>
+        <p>
+          <i class="fa-solid fa-person-digging travaux"></i>
+        </p>
+        <!-- <p>Appuyez sur le bouton pour obtenir le résultat d'échographie du 5ème mois</p>
         <form>
-          <label for="mainCaseSelector">Cas obtenu à la 1ère écho</label>
-          <select id="mainCaseSelector">
-            <option value="" disabled selected>N° du cas</option>
-            <option value="1">Cas 1</option>
-            <option value="2">Cas 2</option>
-            <option value="3">Cas 3</option>
-            <option value="4">Cas 4</option>
-            <option value="5">Cas 5</option>
-            <option value="6">Cas 6</option>
-            <option value="8">Cas 8</option>
-            <option value="9">Cas 9</option>
-          </select>
-          <div id="thirdMonthCaseContainer">
-            <label for="thirdMonthCaseNumber">Sous-cas obtenu à la 2ème écho</label>
-            <select id="thirdMonthCaseNumber">
-              <option value="" disabled selected>N° du sous-cas</option>
-            </select>
+          <div id="fifthMonthCaseContainer" class="caseContainer">
+            <label for="fifthMonthCaseNumber">Cas fourni par le laboratoire</label>
+            <input type="text" id="fifthMonthCaseNumber" class="caseNumber" placeholder="Ex: 1.1" />
           </div>
         </form>
         <button id="generateFifthMonthButton">Générer écho 5ème mois</button>
         <i id="fifthMonthClose" class="fa-solid fa-xmark hidden"></i>
-        <div class="hidden result" id="fifthMonthResult"></div>
+        <div class="hidden result" id="fifthMonthResult">
+        </div> -->
       </section>
       <section class="container" id="seventhMonthSection">
         <h2>7ème mois</h2>
-        <form>
+        <p>
+          <i class="fa-solid fa-person-digging travaux"></i>
+        </p>
+        <!-- <form>
           <label for="firstMonthCaseNumber">Cas de l'échographie du 1er mois</label>
           <select id="firstMonthCaseNumber" onchange="updateSelectors()">
             <option value="" disabled selected>Sélectionnez un cas</option>
@@ -102,7 +98,7 @@
         <i id="seventhMonthClose" class="fa-solid fa-xmark hidden"></i>
         <div class="hidden result" id="seventhMonthResult">
           <p id="seventhMonthEvolution" class="hidden"></p>
-        </div>
+        </div> -->
       </section>
     </main>
     <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>
