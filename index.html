@@ -31,9 +31,9 @@
         <h2>Premier mois</h2>
         <p>Appuyez sur le bouton pour obtenir le résultat d'échographie du 1er mois</p>
         <form>
-          <div id="firstMonthCaseContainer">
+          <div id="firstMonthCaseContainer" class="caseContainer">
             <label for="firstMonthCaseNumber">Cas fourni par le laboratoire</label>
-            <input type="text" id="firstMonthCaseNumber" placeholder="Ex: 1.1" />
+            <input type="text" id="firstMonthCaseNumber" class="caseNumber" placeholder="Ex: 1.1" />
           </div>
         </form>
         <button id="generateFirstMonthButton">Générer écho 1er mois</button>
@@ -44,9 +44,12 @@
       </section>
       <section class="container" id="thirdMonthSection">
         <h2>3ème mois</h2>
+        <p>Appuyez sur le bouton pour obtenir le résultat d'échographie du 3ème mois</p>
         <form>
-          <label for="thirdMonthCaseNumber">Cas fourni par le laboratoire</label>
-          <input type="text" id="thirdMonthCaseNumber" placeholder="Ex: 1.1" />
+          <div id="thirdMonthCaseContainer" class="caseContainer">
+            <label for="thirdMonthCaseNumber">Cas fourni par le laboratoire</label>
+            <input type="text" id="thirdMonthCaseNumber" class="caseNumber" placeholder="Ex: 1.1" />
+          </div>
         </form>
         <button id="generateThirdMonthButton">Générer écho 3ème mois</button>
         <i id="thirdMonthClose" class="fa-solid fa-xmark hidden"></i>

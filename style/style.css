@@ -152,16 +152,14 @@ main .container form select {
   width: 100px;
   text-align: center;
 }
-main .container form #thirdMonthCaseContainer {
-  display: none;
+main .container form .caseContainer {
   position: relative;
   margin-bottom: 20px;
 }
-main .container form #thirdMonthCaseContainer #thirdMonthCaseNumber {
+main .container form .caseContainer .caseNumber {
   position: absolute;
   top: 125%;
   left: 25%;
-  width: 125px;
 }
 main .container form #additionalSelectors {
   margin-bottom: -10px;

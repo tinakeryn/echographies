@@ -113,17 +113,26 @@ main {
         width: 100px;
         text-align: center;
       }
-      #thirdMonthCaseContainer {
-        display: none;
+      .caseContainer {
         position: relative;
         margin-bottom: 20px;
-        #thirdMonthCaseNumber {
+        .caseNumber {
           position: absolute;
           top: 125%;
           left: 25%;
-          width: 125px;
         }
       }
+      // #thirdMonthCaseContainer {
+      //   display: none;
+      //   position: relative;
+      //   margin-bottom: 20px;
+      //   #thirdMonthCaseNumber {
+      //     position: absolute;
+      //     top: 125%;
+      //     left: 25%;
+      //     width: 125px;
+      //   }
+      // }
       #additionalSelectors {
         margin-bottom: -10px;
         label {
