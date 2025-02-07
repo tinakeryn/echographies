@@ -1,4 +1,4 @@
-//* Dictionnaire des résultats d'é'chographie 3ème mois
+//* Dictionnaire des résultats d'échographie 3ème mois
 const evolutionResults = [
   {
     numero: 1,

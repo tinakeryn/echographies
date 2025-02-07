@@ -44,18 +44,18 @@ function scrollToSection(buttonId, sectionId) {
 
 //? --> 1er mois de grossesse
 //* Générer un compte-rendu d'échographie 1er mois
-const labThirdMonthCaseInput = document.getElementById("labThirdMonthCaseNumber");
+const firstMonthCaseInput = document.getElementById("firstMonthCaseNumber");
 
 // Ajouter une liste de suggestions dynamiques
 document.addEventListener("DOMContentLoaded", function () {
   const datalist = document.createElement("datalist");
   datalist.id = "caseSuggestions";
   document.body.appendChild(datalist);
-  labThirdMonthCaseInput.setAttribute("list", "caseSuggestions");
+  firstMonthCaseInput.setAttribute("list", "caseSuggestions");
 });
 
-labThirdMonthCaseInput.addEventListener("input", function () {
-  const value = labThirdMonthCaseInput.value.trim();
+firstMonthCaseInput.addEventListener("input", function () {
+  const value = firstMonthCaseInput.value.trim();
   const datalist = document.getElementById("caseSuggestions");
   datalist.innerHTML = "";
 
@@ -83,7 +83,7 @@ labThirdMonthCaseInput.addEventListener("input", function () {
 });
 
 // Déclencher la génération avec la touche Entrée
-labThirdMonthCaseInput.addEventListener("keypress", function (event) {
+firstMonthCaseInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     document.getElementById("generateFirstMonthButton").click();
@@ -92,7 +92,7 @@ labThirdMonthCaseInput.addEventListener("keypress", function (event) {
 
 // Générer l'écho du 1er mois
 document.getElementById("generateFirstMonthButton").addEventListener("click", function () {
-  const selectedSubCase = labThirdMonthCaseInput.value.trim();
+  const selectedSubCase = firstMonthCaseInput.value.trim();
 
   if (selectedSubCase.match(/^\d+\.\d+$/)) {
     const selectedMainCase = parseInt(selectedSubCase.split(".")[0]); // Extraire le chiffre avant le point
@@ -161,99 +161,141 @@ document.getElementById("firstMonthClose").addEventListener("click", function ()
 });
 //? 1er mois de grossesse <--
 
+// TODO: modifier le 3ème mois pour inclure l'input x.y
 //? --> 3ème mois de grossesse
-//* Générer un compte-rendu pour le 3ème mois de grossesse
-document.getElementById("generateThirdMonthButton").addEventListener("click", function () {
-  const caseNumber = parseInt(document.getElementById("caseNumber").value);
-  if (isNaN(caseNumber) || caseNumber < 1 || caseNumber > 10) {
-    alert("Veuillez sélectionner un numéro de cas valide (entre 1 et 10).");
-    return;
+const thirdMonthInput = document.getElementById("thirdMonthCaseNumber");
+const generateButton = document.getElementById("generateThirdMonthButton");
+
+//* Auto-complétion avec suggestions pour l'input
+document.addEventListener("DOMContentLoaded", function () {
+  if (thirdMonthInput) {
+    const dataList = document.createElement("datalist");
+    dataList.id = "thirdMonthSuggestions";
+    thirdMonthInput.setAttribute("list", "thirdMonthSuggestions");
+    document.body.appendChild(dataList);
+
+    thirdMonthInput.addEventListener("input", function () {
+      const value = thirdMonthInput.value.trim();
+      dataList.innerHTML = ""; // Réinitialiser les suggestions
+
+      if (value.includes(".")) {
+        const [mainCase] = value.split(".");
+        if (firstMonthCaseOptions[mainCase]) {
+          firstMonthCaseOptions[mainCase].forEach((subCase) => {
+            const option = document.createElement("option");
+            option.value = subCase;
+            dataList.appendChild(option);
+          });
+        }
+      } else {
+        const mainKeys = Object.keys(firstMonthCaseOptions);
+        mainKeys.forEach((key) => {
+          if (key.startsWith(value)) {
+            firstMonthCaseOptions[key].forEach((subCase) => {
+              const option = document.createElement("option");
+              option.value = subCase;
+              dataList.appendChild(option);
+            });
+          }
+        });
+      }
+    });
   }
 
+  // Exécuter l'eventListener du bouton lors de l'appui sur Enter
+  thirdMonthInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Empêcher le formulaire de se soumettre
+      generateButton.click(); // Simuler un clic sur le bouton
+    }
+  });
+});
+
+//* Générer un compte-rendu pour le 3ème mois de grossesse
+document.getElementById("generateThirdMonthButton").addEventListener("click", function () {
+  const caseNumber = document.getElementById("thirdMonthCaseNumber").value.trim();
   const resultContainer = document.getElementById("thirdMonthResult");
   resultContainer.innerHTML = ""; // Réinitialisation du contenu
 
-  // Sélectionner l'évolution pour le cas
-  const evolutionsForCase = evolutionResults.find(
-    (result) => result.numero === caseNumber
-  ).evolutions;
-  const randomEvolution = evolutionsForCase[Math.floor(Math.random() * evolutionsForCase.length)];
-
-  // Déterminer le nombre de fœtus
-  let numberOfFetus = 1;
-  if (randomEvolution.fetus) {
-    numberOfFetus = Object.keys(randomEvolution.fetus).length;
-  } else if (randomEvolution.nombreFetus !== undefined) {
-    numberOfFetus = randomEvolution.nombreFetus;
+  if (!caseNumber.match(/^\d+\.\d+$/)) {
+    alert("Veuillez entrer un numéro de cas valide au format n.x");
+    return;
   }
 
-  // Générer les tableaux pour chaque fœtus
+  // Détermination du numéro principal et du sous-cas
+  const [mainCase, subCase] = caseNumber.split(".");
+  // Trouver les évolutions pour le sous-cas
+  const caseData = evolutionResults.find((result) => result.numero === parseInt(mainCase));
+
+  if (!caseData) {
+    alert("Aucun cas trouvé pour le numéro fourni.");
+    return;
+  }
+
+  // Recherche de l'évolution spécifique pour le sous-cas
+  const evolutionData = caseData.evolutions.find(
+    (evo) => evo.id === parseFloat(`${mainCase}.${subCase}`)
+  );
+
+  if (!evolutionData) {
+    alert("Évolution non trouvée pour ce sous-cas.");
+    return;
+  }
+
+  // Déterminer le nombre de fœtus
+  let numberOfFetus = 1; // Par défaut, 1 fœtus
+  if (mainCase === "4") numberOfFetus = 2; // Cas de grossesse multiple avec 2 fœtus
+  else if (mainCase === "8") numberOfFetus = 3; // Cas de grossesse multiple avec 3 fœtus
+  else if (mainCase === "9") numberOfFetus = 4; // Cas de grossesse multiple avec 4 fœtus
+  else if (evolutionData.nombreFetus) numberOfFetus = evolutionData.nombreFetus;
+
+  // Traitement des fœtus et affichage des données
   for (let i = 1; i <= numberOfFetus; i++) {
     const table = document.createElement("table");
     const caption = numberOfFetus > 1 ? `<caption>Bébé n°${i}</caption>` : "";
-    table.innerHTML = `
-  ${caption}
-  <thead>
-<tr>
-  <th>Élément observé</th>
-  <th>Observation</th>
-</tr>
-  </thead>
-  <tbody>
-<tr>
-  <td class="tdTitle">Clarté nucale</td>
-  <td id="clarteNucale${i}"></td>
-</tr>
-<tr>
-  <td class="tdTitle">Activité cardiaque</td>
-  <td id="activiteCardiaque${i}"></td>
-</tr>
-<tr>
-  <td class="tdTitle">Anomalie morphologique</td>
-  <td id="anomalieMorphologique${i}"></td>
-</tr>
-<tr>
-  <td class="tdTitle">Quantité de liquide amniotique</td>
-  <td id="quantiteLiquideAmniotique${i}"></td>
-</tr>
-  </tbody>
-`;
-    resultContainer.appendChild(table);
+    let fetusData = evolutionData; // Données par défaut pour 1 fœtus
 
-    // Remplissage des données dans les cellules
-    if (randomEvolution) {
-      if (randomEvolution.fetus) {
-        const fetusKey = `bebe${i}`;
-        const fetusData = randomEvolution.fetus[fetusKey];
-        if (fetusData) {
-          document.getElementById(`clarteNucale${i}`).innerText = fetusData.clarteNucale;
-          document.getElementById(`activiteCardiaque${i}`).innerText = fetusData.activiteCardiaque;
-          document.getElementById(`anomalieMorphologique${i}`).innerText =
-            fetusData.anomalieMorphologique;
-          document.getElementById(`quantiteLiquideAmniotique${i}`).innerText =
-            fetusData.liquideAmniotique;
-        }
-      } else {
-        document.getElementById(`clarteNucale${i}`).innerText = randomEvolution.clarteNucale;
-        document.getElementById(`activiteCardiaque${i}`).innerText =
-          randomEvolution.activiteCardiaque;
-        document.getElementById(`anomalieMorphologique${i}`).innerText =
-          randomEvolution.anomalieMorphologique;
-        document.getElementById(`quantiteLiquideAmniotique${i}`).innerText =
-          randomEvolution.liquideAmniotique;
-      }
+    if (numberOfFetus > 1 && evolutionData.fetus) {
+      fetusData = evolutionData.fetus[`bebe${i}`]; // Récupérer les données spécifiques au bébé i
     }
+
+    table.innerHTML = `
+    ${caption}
+    <thead>
+      <tr>
+        <th>Élément observé</th>
+        <th>Observation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tdTitle">Clarté nucale</td>
+        <td id="clarteNucale${i}">${fetusData.clarteNucale || "-"}</td>
+      </tr>
+      <tr>
+        <td class="tdTitle">Activité cardiaque</td>
+        <td id="activiteCardiaque${i}">${fetusData.activiteCardiaque || "-"}</td>
+      </tr>
+      <tr>
+        <td class="tdTitle">Anomalie morphologique</td>
+        <td id="anomalieMorphologique${i}">${fetusData.anomalieMorphologique || "-"}</td>
+      </tr>
+      <tr>
+        <td class="tdTitle">Quantité de liquide amniotique</td>
+        <td id="quantiteLiquideAmniotique${i}">${fetusData.liquideAmniotique || "-"}</td>
+      </tr>
+    </tbody>
+  `;
+    resultContainer.appendChild(table);
   }
 
-  // Créer et insérer dynamiquement le paragraphe d'évolution
-  if (randomEvolution && randomEvolution.evolution) {
-    const evolutionParagraph = document.createElement("p");
-    evolutionParagraph.className = "paragraphReport";
-    evolutionParagraph.innerHTML = `Cas n°<span class="important">${randomEvolution.id}</span> <br><br>${randomEvolution.evolution}`;
-    resultContainer.appendChild(evolutionParagraph);
-  }
+  // Ajouter le paragraphe d'évolution
+  const evolutionParagraph = document.createElement("p");
+  evolutionParagraph.className = "paragraphReport";
+  evolutionParagraph.innerHTML = `Cas n°<span class="important">${evolutionData.id}</span> <br><br>${evolutionData.evolution}`;
+  resultContainer.appendChild(evolutionParagraph);
 
-  // Afficher les éléments masqués
+  // Afficher la section des résultats
   resultContainer.classList.remove("hidden");
   document.getElementById("thirdMonthClose").classList.remove("hidden");
 });

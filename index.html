@@ -27,14 +27,13 @@
           <li><a href="https://tinakeryn.github.io/labm/">Labo d'analyses médicales</a></li>
         </ul>
       </nav>
-
       <section class="container" id="firstMonthSection">
         <h2>Premier mois</h2>
         <p>Appuyez sur le bouton pour obtenir le résultat d'échographie du 1er mois</p>
         <form>
-          <div id="labThirdMonthCaseContainer">
-            <label for="labThirdMonthCaseNumber">Cas fourni par le laboratoire</label>
-            <input type="text" id="labThirdMonthCaseNumber" placeholder="Ex: 1.1" />
+          <div id="firstMonthCaseContainer">
+            <label for="firstMonthCaseNumber">Cas fourni par le laboratoire</label>
+            <input type="text" id="firstMonthCaseNumber" placeholder="Ex: 1.1" />
           </div>
         </form>
         <button id="generateFirstMonthButton">Générer écho 1er mois</button>
@@ -43,24 +42,11 @@
           <!-- Résultats de l'échographie -->
         </div>
       </section>
-
       <section class="container" id="thirdMonthSection">
         <h2>3ème mois</h2>
         <form>
-          <label for="caseNumber">Numéro du cas obtenu à la 1ère écho</label>
-          <select id="caseNumber">
-            <option value="" disabled selected>Sélectionnez un numéro de cas</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+          <label for="thirdMonthCaseNumber">Cas fourni par le laboratoire</label>
+          <input type="text" id="thirdMonthCaseNumber" placeholder="Ex: 1.1" />
         </form>
         <button id="generateThirdMonthButton">Générer écho 3ème mois</button>
         <i id="thirdMonthClose" class="fa-solid fa-xmark hidden"></i>
