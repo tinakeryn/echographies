@@ -168,6 +168,7 @@ document.getElementById("firstMonthClose").addEventListener("click", function ()
 });
 //? 1er mois de grossesse <--
 
+// TODO: Réparer le bouton X pour fermer l'écho "3ème mois" képétée (problème de display ?)
 //? --> 3ème mois de grossesse
 const thirdMonthInput = document.getElementById("thirdMonthCaseNumber");
 
@@ -262,6 +263,7 @@ document.getElementById("generateThirdMonthButton").addEventListener("click", fu
 
     if (numberOfFetus > 1 && evolutionData.fetus) {
       fetusData = evolutionData.fetus[`bebe${i}`]; // Récupérer les données spécifiques au bébé i
+      console.log(fetusData);
     }
 
     table.innerHTML = `
@@ -303,6 +305,13 @@ document.getElementById("generateThirdMonthButton").addEventListener("click", fu
   // Afficher la section des résultats
   resultContainer.classList.remove("hidden");
   document.getElementById("thirdMonthClose").classList.remove("hidden");
+});
+
+//* Gestion du bouton Fermer
+document.getElementById("thirdMonthClose").addEventListener("click", function () {
+  const resultContainer = document.getElementById("thirdMonthResult");
+  resultContainer.classList.add("hidden");
+  hideElements(["thirdMonthClose"]);
 });
 //? 3ème mois de grossesse <--
 
@@ -348,6 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function isValidFifthMonthCase(inputValue) {
     return Object.values(fifthMonthCaseOptions).some((subCases) => subCases.includes(inputValue));
   }
+
   // Exécuter l'eventListener du bouton lors de l'appui sur Enter
   fifthMonthInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
@@ -370,20 +380,139 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Ce cas est impossible au 5ème mois !");
       return;
     }
-    console.log("izokay");
 
-    // Code pour générer l'échographie...
+    const selectedData = selectRandomSubCase();
+    generateFetusTables(selectedData);
   });
-  // Exécuter l'eventListener du bouton lors de l'appui sur Enter
-  // fifthMonthInput.addEventListener("keydown", function (event) {
-  //   if (event.key === "Enter") {
-  //     event.preventDefault(); // Empêcher le formulaire de se soumettre
-  //     generateFifthMonthButton.click(); // Simuler un clic sur le bouton
-  //   }
-  // });
+});
+//* Fonction pour sélectionner un sous-cas aléatoire
+let randomSubCaseKey;
+function selectRandomSubCase() {
+  const selectedCase = document.getElementById("fifthMonthCaseNumber").value;
+
+  if (!selectedCase || !fifthMonthEvolutions[selectedCase]) {
+    alert("Cas non valide ou non trouvé !");
+    return;
+  }
+
+  const selectedEntry = fifthMonthEvolutions[selectedCase];
+
+  if (!selectedEntry.evolutions || selectedEntry.evolutions.length === 0) {
+    alert("Aucune évolution trouvée pour ce cas !");
+    return;
+  }
+
+  const evolutionOptions = selectedEntry.evolutions[0]; // Premier objet d'évolution
+  const subCaseKeys = Object.keys(evolutionOptions);
+
+  if (subCaseKeys.length === 0) {
+    alert("Aucune évolution trouvée !");
+    return;
+  }
+
+  randomSubCaseKey = subCaseKeys[Math.floor(Math.random() * subCaseKeys.length)];
+  const selectedData = evolutionOptions[randomSubCaseKey];
+
+  return selectedData;
+}
+
+//* Nombre de fœtus par cas
+const fetusCountByCase = (caseNumber) => {
+  if (caseNumber >= 4.1 && caseNumber <= 4.5) return 2;
+  if (caseNumber >= 8.1 && caseNumber <= 8.5) return 3;
+  if (caseNumber >= 9.1 && caseNumber <= 9.5) return 4;
+  return 1;
+};
+
+//* Fonction pour générer le sexe
+function getRandomSex() {
+  return Math.random() < 0.5 ? "Masculin" : "Féminin";
+}
+
+//* Fonction pour générer les tableaux
+function generateFetusTables(selectedData) {
+  const caseNumber = fifthMonthInput.value;
+  const fetusCount = fetusCountByCase(caseNumber);
+  const resultContainer = document.getElementById("fifthMonthResult");
+  resultContainer.innerHTML = "";
+
+  // Récupérer les données des bébés sous forme de tableau
+  const bebes = Object.keys(selectedData)
+    .filter((key) => key.startsWith("bebe"))
+    .map((key) => selectedData[key]);
+
+  for (let i = 1; i <= fetusCount; i++) {
+    const bebeData = bebes[i - 1] || {}; // Éviter les erreurs si le bébé n'existe pas
+    const gender = getRandomSex();
+
+    const caption = fetusCount > 1 ? `<caption>Bébé n°${i}</caption>` : "";
+    const tableHTML = `
+      <table id="fetusTable${i}">
+        ${caption}
+        <thead>
+          <tr>
+            <th>Élément observé</th>
+            <th>Observation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tdTitle">Morphologie cérébrale</td>
+            <td id="morphologieCerebrale${i}">${
+      bebeData.morphologieCerebrale || selectedData?.morphologieCerebrale
+    }</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Colonne vertébrale</td>
+            <td id="colonneVertebrale${i}">${
+      bebeData.colonneVertebrale || selectedData?.colonneVertebrale
+    }</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Membres</td>
+            <td id="membres${i}">${bebeData.membres || selectedData?.membres}</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Placenta</td>
+            <td id="placenta${i}">${bebeData.placenta || selectedData?.placenta}</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Interprétation</td>
+            <td id="interpretation${i}">${
+      bebeData.interpretation || selectedData?.interpretation
+    }</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Sexe</td>
+            <td id="sexe${i}">${gender}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+    resultContainer.innerHTML += `${tableHTML}`;
+  }
+
+  // Ajouter le paragraphe d'évolution
+  const evolutionParagraph = document.createElement("p");
+  evolutionParagraph.id = "fifthMonthEvolution";
+  evolutionParagraph.className = "paragraphReport";
+  evolutionParagraph.innerHTML = `Cas n°<span class="important">${randomSubCaseKey}</span> <br><br>${selectedData?.conclusion}`;
+
+  resultContainer.appendChild(evolutionParagraph);
+
+  resultContainer.classList.remove("hidden");
+  showNextElement("generateFifthMonthButton");
+}
+
+//* Gestion du bouton Fermer
+document.getElementById("fifthMonthClose").addEventListener("click", function () {
+  const resultContainer = document.getElementById("fifthMonthResult");
+  resultContainer.classList.add("hidden");
+  hideElements(["fifthMonthClose"]);
 });
 //? 5ème mois de grossesse <--
 
+// TODO : Passer à la V2 du 7ème mois
 //? --> 7ème mois de grossesse
 function updateSelectors() {
   const caseNumber = document.getElementById("firstMonthCaseNumber").value;
