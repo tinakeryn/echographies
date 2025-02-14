@@ -68,33 +68,30 @@
         </form>
         <button id="generateFifthMonthButton">Générer écho 5ème mois</button>
         <i id="fifthMonthClose" class="fa-solid fa-xmark hidden"></i>
-        <div class="hidden result" id="fifthMonthResult"></div>
+        <div class="hidden result" id="fifthMonthResult">
+          <!-- Résultats de l'échographie du 5ème mois-->
+        </div>
       </section>
       <section class="container" id="seventhMonthSection">
-        <!-- TODO: Supprimer la mention "En travaux" une fois la V2 "7ème mois" achevée-->
         <h2>7ème mois</h2>
-        <p>
-          <i class="fa-solid fa-person-digging travaux"></i>
-        </p>
+        <p><i class="fa-solid fa-person-digging travaux"></i></p>
+        <!-- TODO: continuer la V2 du 7ème mois -->
         <!-- <form>
-          <label for="firstMonthCaseNumber">Cas de l'échographie du 1er mois</label>
-          <select id="firstMonthCaseNumber" onchange="updateSelectors()">
-            <option value="" disabled selected>Sélectionnez un cas</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-          </select>
-          <div id="additionalSelectors"></div>
+          <label for="seventhMonthCaseNumber">Cas obtenu à l'échographie du 5ème mois</label>
+          <input
+            type="text"
+            id="seventhMonthCaseNumber"
+            class="caseNumber"
+            list="seventhMonthSuggestions"
+            placeholder="Ex: 1.1.1"
+          />
+          <div id="additionalSelectors" class="hidden"></div>
+          <datalist id="seventhMonthSuggestions"></datalist>
         </form>
         <button id="generateSeventhMonthButton">Générer écho 7ème mois</button>
         <i id="seventhMonthClose" class="fa-solid fa-xmark hidden"></i>
         <div class="hidden result" id="seventhMonthResult">
-          <p id="seventhMonthEvolution" class="hidden"></p>
+     
         </div> -->
       </section>
     </main>

@@ -512,360 +512,112 @@ document.getElementById("fifthMonthClose").addEventListener("click", function ()
 });
 //? 5ème mois de grossesse <--
 
-// TODO : Passer à la V2 du 7ème mois
 //? --> 7ème mois de grossesse
-function updateSelectors() {
-  const caseNumber = document.getElementById("firstMonthCaseNumber").value;
-  const container = document.getElementById("additionalSelectors");
-  container.innerHTML = ""; // Efface les sélecteurs précédents
+const generateSeventhMonthButton = document.getElementById("generateSeventhMonthButton");
+const seventhMonthInput = document.getElementById("seventhMonthCaseNumber");
 
-  // Définition du nombre de bébés en fonction du cas sélectionné
-  let numberOfBabies = 1;
-  if (caseNumber === "4") numberOfBabies = 2;
-  else if (caseNumber === "8") numberOfBabies = 3;
-  else if (caseNumber === "9") numberOfBabies = 4;
+//* Gestion du formulaire
+document.addEventListener("DOMContentLoaded", function () {
+  //! Gestion de l'auto-complétion
+  const seventhMonthDatalist = document.getElementById("seventhMonthSuggestions");
 
-  // Affiche ou cache le conteneur en fonction du cas sélectionné
-  if (caseNumber && numberOfBabies > 0) {
-    container.style.display = "block"; // Rendre le conteneur visible si des sélecteurs doivent être ajoutés
-  } else {
-    container.style.display = "none"; // Cacher si aucun sélecteur supplémentaire
-  }
+  // Mise à jour dynamique des suggestions
+  seventhMonthInput.addEventListener("input", function () {
+    const value = seventhMonthInput.value.trim();
+    seventhMonthDatalist.innerHTML = ""; // Réinitialiser les suggestions
 
-  // Ajout des sélecteurs pour le sexe des bébés
-  for (let i = 1; i <= numberOfBabies; i++) {
-    const label = document.createElement("label");
-    label.setAttribute("for", `babySex${i}`);
-    label.textContent = numberOfBabies === 1 ? "Sexe du Bébé " : `Sexe de Bébé ${i}`;
-
-    const select = document.createElement("select");
-    select.setAttribute("id", `babySex${i}`);
-    select.innerHTML = `
-      <option value="" disabled selected>Sélectionnez le sexe</option>
-      <option value="Féminin">Féminin</option>
-      <option value="Masculin">Masculin</option>
-    `;
-
-    container.appendChild(label);
-    container.appendChild(select);
-    container.appendChild(document.createElement("br"));
-  }
-
-  // Ajout du sélecteur pour les sous-cas
-  const subCaseSelect = document.createElement("select");
-  subCaseSelect.setAttribute("id", "subCaseSelector");
-  const options = getSubCaseOptions(caseNumber);
-
-  options.forEach((optionValue) => {
-    const option = document.createElement("option");
-    option.value = optionValue;
-    option.textContent = optionValue;
-    subCaseSelect.appendChild(option);
+    if (value) {
+      const filteredOptions = getFilteredSuggestions(value);
+      filteredOptions.forEach((optionValue) => {
+        const option = document.createElement("option");
+        option.value = optionValue;
+        seventhMonthDatalist.appendChild(option);
+      });
+    }
   });
 
-  const subCaseLabel = document.createElement("label");
-  subCaseLabel.setAttribute("for", "subCaseSelector");
-  subCaseLabel.textContent = "Cas obtenu à l'écho du 5ème mois ";
+  // Fonction pour récupérer les suggestions en fonction de la saisie
+  function getFilteredSuggestions(inputValue) {
+    let suggestions = [];
+    const keys = Object.keys(seventhMonthCaseOptions).map(String); // Forcer en chaîne
 
-  container.appendChild(subCaseLabel);
-  container.appendChild(subCaseSelect);
-}
-//* Fonction pour récupérer les options de sous-cas en fonction du cas sélectionné
-function getSubCaseOptions(caseNumber) {
-  const subCaseOptions = {
-    1: [
-      "1.1.1",
-      "1.1.2",
-      "1.1.3",
-      "1.2.1",
-      "1.2.2",
-      "1.2.3",
-      "1.3.1",
-      "1.3.2",
-      "1.3.3",
-      "1.4.1",
-      "1.4.2",
-      "1.4.3",
-    ],
-    2: ["2.1.1", "2.1.2", "2.1.3", "2.2.1", "2.2.2", "2.2.3"],
-    3: ["3.1.1", "3.1.2", "3.1.3", "3.2.1", "3.2.2", "3.2.3"],
-    4: [
-      "4.1.1",
-      "4.1.2",
-      "4.1.3",
-      "4.2.1",
-      "4.2.2",
-      "4.2.3",
-      "4.3.1",
-      "4.3.2",
-      "4.3.3",
-      "4.4.1",
-      "4.4.2",
-      "4.4.3",
-      "4.5.1",
-      "4.5.2",
-      "4.5.3",
-    ],
-    5: ["5.1.1", "5.1.2", "5.1.3", "5.2.1", "5.2.2", "5.2.3"],
-    6: ["6.1.1", "6.1.2", "6.1.3"],
-    8: [
-      "8.1.1",
-      "8.1.2",
-      "8.1.3",
-      "8.2.1",
-      "8.2.2",
-      "8.2.3",
-      "8.3.1",
-      "8.3.2",
-      "8.3.3",
-      "8.4.1",
-      "8.4.2",
-      "8.4.3",
-      "8.5.1",
-      "8.5.2",
-      "8.5.3",
-    ],
-    9: [
-      "9.1.1",
-      "9.1.2",
-      "9.1.3",
-      "9.2.1",
-      "9.2.2",
-      "9.2.3",
-      "9.3.1",
-      "9.3.2",
-      "9.3.3",
-      "9.4.1",
-      "9.4.2",
-      "9.4.3",
-      "9.5.1",
-      "9.5.2",
-      "9.5.3",
-    ],
-  };
-  return subCaseOptions[caseNumber] || [];
-}
+    if (inputValue.includes(".")) {
+      const parts = inputValue.split(".");
 
-// Fonction pour récupérer les sexes des bébés
-
-function generateSeventhMonthReport() {
-  const subCaseSelector = document.getElementById("subCaseSelector");
-  const selectedSubCase = String(subCaseSelector.value);
-  if (!selectedSubCase) {
-    alert("Veuillez sélectionner un sous-cas.");
-    return;
-  }
-
-  // Correspondances des sous-cas avec les dictionnaires (les objets de 7e mois)
-  const caseMappings = {
-    "1.1.1": sevenOneDotOneA,
-    "1.1.2": sevenOneDotOneB,
-    "1.1.3": sevenOneDotOneC,
-    "1.2.1": sevenOneDotTwoA,
-    "1.2.2": sevenOneDotTwoB,
-    "1.2.3": sevenOneDotTwoC,
-    "1.3.1": sevenOneDotThreeA,
-    "1.3.2": sevenOneDotThreeB,
-    "1.3.3": sevenOneDotThreeC,
-    "1.4.1": sevenOneDotFourA,
-    "1.4.2": sevenOneDotFourB,
-    "1.4.3": sevenOneDotFourC,
-    "2.1.1": sevenTwoDotOneA,
-    "2.1.2": sevenTwoDotOneB,
-    "2.1.3": sevenTwoDotOneC,
-    "2.2.1": sevenTwoDotTwoA,
-    "2.2.2": sevenTwoDotTwoB,
-    "2.2.3": sevenTwoDotTwoC,
-    "3.1.1": sevenThreeDotOneA,
-    "3.1.2": sevenThreeDotOneB,
-    "3.1.3": sevenThreeDotOneC,
-    "3.2.1": sevenThreeDotTwoA,
-    "3.2.2": sevenThreeDotTwoB,
-    "3.2.3": sevenThreeDotTwoC,
-    "4.1.1": sevenFourDotOneA,
-    "4.1.2": sevenFourDotOneB,
-    "4.1.3": sevenFourDotOneC,
-    "4.2.1": sevenFourDotTwoA,
-    "4.2.2": sevenFourDotTwoB,
-    "4.2.3": sevenFourDotTwoC,
-    "4.3.1": sevenFourDotThreeA,
-    "4.3.2": sevenFourDotThreeB,
-    "4.3.3": sevenFourDotThreeC,
-    "4.4.1": sevenFourDotFourA,
-    "4.4.2": sevenFourDotFourB,
-    "4.4.3": sevenFourDotFourC,
-    "4.5.1": sevenFourDotFiveA,
-    "4.5.2": sevenFourDotFiveB,
-    "4.5.3": sevenFourDotFiveC,
-    "5.1.1": sevenFiveDotOneA,
-    "5.1.2": sevenFiveDotOneB,
-    "5.1.3": sevenFiveDotOneC,
-    "5.2.1": sevenFiveDotTwoA,
-    "5.2.2": sevenFiveDotTwoB,
-    "5.2.3": sevenFiveDotTwoC,
-    "6.1.1": sevenSixDotOneA,
-    "6.1.2": sevenSixDotOneB,
-    "6.1.3": sevenSixDotOneC,
-    "8.1.1": sevenEightDotOneA,
-    "8.1.2": sevenEightDotOneB,
-    "8.1.3": sevenEightDotOneC,
-    "8.2.1": sevenEightDotTwoA,
-    "8.2.2": sevenEightDotTwoB,
-    "8.2.3": sevenEightDotTwoC,
-    "8.3.1": sevenEightDotThreeA,
-    "8.3.2": sevenEightDotThreeB,
-    "8.3.3": sevenEightDotThreeC,
-    "8.4.1": sevenEightDotFourA,
-    "8.4.2": sevenEightDotFourB,
-    "8.4.3": sevenEightDotFourC,
-    "8.5.1": sevenEightDotFiveA,
-    "8.5.2": sevenEightDotFiveB,
-    "8.5.3": sevenEightDotFiveC,
-    "9.1.1": sevenNineDotOneA,
-    "9.1.2": sevenNineDotOneB,
-    "9.1.3": sevenNineDotOneC,
-    "9.2.1": sevenNineDotTwoA,
-    "9.2.2": sevenNineDotTwoB,
-    "9.2.3": sevenNineDotTwoC,
-    "9.3.1": sevenNineDotThreeA,
-    "9.3.2": sevenNineDotThreeB,
-    "9.3.3": sevenNineDotThreeC,
-    "9.4.1": sevenNineDotFourA,
-    "9.4.2": sevenNineDotFourB,
-    "9.4.3": sevenNineDotFourC,
-    "9.5.1": sevenNineDotFiveA,
-    "9.5.2": sevenNineDotFiveB,
-    "9.5.3": sevenNineDotFiveC,
-  };
-
-  // Dictionnaire du nombre de bébés par sous-cas
-  const babyCounts = {
-    // Cas avec 2 bébés
-    "4.1.1": 2,
-    "4.1.2": 2,
-    "4.1.3": 2,
-    "4.2.1": 2,
-    "4.2.2": 2,
-    "4.2.3": 2,
-    "4.3.1": 2,
-    "4.3.2": 2,
-    "4.3.3": 2,
-    "4.4.1": 2,
-    "4.4.2": 2,
-    "4.4.3": 2,
-    "4.5.1": 2,
-    "4.5.2": 2,
-    "4.5.3": 2,
-    // Cas avec 3 bébés
-    "8.1.1": 3,
-    "8.1.2": 3,
-    "8.1.3": 3,
-    "8.2.1": 3,
-    "8.2.2": 3,
-    "8.2.3": 3,
-    "8.3.1": 3,
-    "8.3.2": 3,
-    "8.3.3": 3,
-    "8.4.1": 3,
-    "8.4.2": 3,
-    "8.4.3": 3,
-    "8.5.1": 3,
-    "8.5.2": 3,
-    "8.5.3": 3,
-    // Cas avec 4 bébés
-    "9.1.1": 4,
-    "9.1.2": 4,
-    "9.1.3": 4,
-    "9.2.1": 4,
-    "9.2.2": 4,
-    "9.2.3": 4,
-    "9.3.1": 4,
-    "9.3.2": 4,
-    "9.3.3": 4,
-    "9.4.1": 4,
-    "9.4.2": 4,
-    "9.4.3": 4,
-    "9.5.1": 4,
-    "9.5.2": 4,
-    "9.5.3": 4,
-    // Tous les autres cas ont 1 bébé
-  };
-
-  // Vérifie si le sous-cas sélectionné existe dans les correspondances
-  if (caseMappings[selectedSubCase]) {
-    const selectedCase = caseMappings[selectedSubCase];
-    const keys = Object.keys(selectedCase);
-    const randomKey = keys[Math.floor(Math.random() * keys.length)];
-    const randomObject = selectedCase[randomKey];
-    const numberOfBabies = babyCounts[selectedSubCase] || 1;
-
-    const resultContainer = document.getElementById("seventhMonthResult");
-    resultContainer.innerHTML = "";
-
-    const conclusion = randomObject.conclusion;
-
-    for (let i = 1; i <= numberOfBabies; i++) {
-      const babyData = randomObject[`bebe${i}`];
-      const babySex = document.getElementById(`babySex${i}`).value;
-      if (babySex === "Féminin") {
-        babyGender = "Fille";
-      } else if (babySex === "Masculin") {
-        babyGender = "Garçon";
-      } else {
-        alert("Veuillez remplir tous les champs");
-        return;
+      if (parts.length === 1) {
+        // L'utilisateur a entré "x." → proposer "x.y"
+        suggestions = keys.filter(
+          (key) => key.startsWith(inputValue) && key.split(".").length === 2
+        );
+      } else if (parts.length === 2) {
+        // L'utilisateur a entré "x.y" → proposer "x.y.z"
+        suggestions = seventhMonthCaseOptions[inputValue] || [];
       }
-
-      // const caption = numberOfBabies > 1 ? `<caption>Bébé ${babyGender} n°${i}</caption>` : "";
-      const caption =
-        numberOfBabies > 1
-          ? `<caption>Bébé ${babyGender} n°${i}</caption>`
-          : `<caption>Bébé ${babyGender}</caption>`;
-      const tableHTML = `
-        <table id="babyTable${i}">
-          ${caption}
-          <thead>
-            <tr>
-              <th>Élément observé</th>
-              <th>Observation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="tdTitle">Position du fœtus</td>
-              <td>${babyData ? babyData.positionFoetus : ""}</td>
-            </tr>
-            <tr>
-              <td class="tdTitle">Taille estimée</td>
-              <td>${babyData ? babyData.tailleFoetus : ""}</td>
-            </tr>
-            <tr>
-              <td class="tdTitle">Placenta</td>
-              <td>${babyData ? babyData.placenta : ""}</td>
-            </tr>
-            <tr>
-              <td class="tdTitle">Interprétation</td>
-              <td>${babyData ? babyData.interpretation : ""}</td>
-            </tr>
-          </tbody>
-        </table>
-      `;
-      resultContainer.innerHTML += tableHTML;
+    } else {
+      // L'utilisateur a entré "x" → proposer toutes les valeurs "x.y"
+      suggestions = keys
+        .filter((key) => key.startsWith(inputValue))
+        .map((key) => key.split(".").slice(0, 2).join(".")) // Récupérer seulement "x.y"
+        .filter((value, index, self) => self.indexOf(value) === index); // Éviter les doublons
     }
-    document.getElementById("seventhMonthResult").classList.remove("hidden");
-    document.getElementById("seventhMonthClose").classList.remove("hidden");
-    const conclusionParagraph = document.createElement("p");
 
-    conclusionParagraph.innerHTML = `Cas n°<span class="important">${randomKey}</span><br><span class="rapport">Conclusion : </span>${conclusion}`;
-    resultContainer.appendChild(conclusionParagraph);
-  } else {
-    alert("Le sous-cas sélectionné est invalide.");
+    return suggestions;
   }
-}
 
-document
-  .getElementById("generateSeventhMonthButton")
-  .addEventListener("click", generateSeventhMonthReport);
+  //! Ajout du sélecteur "Sexe du ou des bébés"
+  const additionalSelectorsContainer = document.getElementById("additionalSelectors");
+
+  seventhMonthInput.addEventListener("change", function () {
+    updateSelectors();
+  });
+
+  function updateSelectors() {
+    const caseNumber = seventhMonthInput.value.trim();
+    additionalSelectorsContainer.innerHTML = ""; // Efface les sélecteurs précédents
+
+    if (!caseNumber.match(/^\d+\.\d+\.\d+$/)) return; // Vérifie que le format est bien "x.y.z"
+
+    const x = caseNumber.split(".")[0]; // Récupère la première partie "x"
+    let numberOfBabies = 1;
+
+    if (x === "4") numberOfBabies = 2;
+    else if (x === "8") numberOfBabies = 3;
+    else if (x === "9") numberOfBabies = 4;
+
+    additionalSelectorsContainer.style.display = "block"; // Afficher le conteneur
+
+    // Génération des sélecteurs pour chaque bébé
+    for (let i = 1; i <= numberOfBabies; i++) {
+      const label = document.createElement("label");
+      label.setAttribute("for", `babySex${i}`);
+      label.textContent = numberOfBabies === 1 ? "Sexe du Bébé " : `Sexe de Bébé ${i}`;
+
+      const select = document.createElement("select");
+      select.setAttribute("id", `babySex${i}`);
+      select.innerHTML = `
+          <option value="" disabled selected>Sélectionnez le sexe</option>
+          <option value="Féminin">Féminin</option>
+          <option value="Masculin">Masculin</option>
+        `;
+
+      additionalSelectorsContainer.appendChild(label);
+      additionalSelectorsContainer.appendChild(select);
+      additionalSelectorsContainer.appendChild(document.createElement("br"));
+    }
+  }
+});
+
+//* Gestion de l'envoi du formulaire
+generateSeventhMonthButton.addEventListener("click", function () {
+  console.log("coucou");
+});
+
+//* Gestion du bouton Fermer
+document.getElementById("seventhMonthClose").addEventListener("click", function () {
+  const resultContainer = document.getElementById("seventhMonthResult");
+  resultContainer.classList.add("hidden");
+  hideElements(["seventhMonthClose"]);
+});
 //? 7ème mois de grossesse <--
 
 //? Afficher toute la section au clic sur le bouton
