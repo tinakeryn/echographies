@@ -515,6 +515,9 @@ document.getElementById("fifthMonthClose").addEventListener("click", function ()
 //? --> 7ème mois de grossesse
 const generateSeventhMonthButton = document.getElementById("generateSeventhMonthButton");
 const seventhMonthInput = document.getElementById("seventhMonthCaseNumber");
+const seventhMonthResult = document.getElementById("seventhMonthResult");
+let inputValue;
+let selectedRandomEvolution;
 
 //* Gestion du formulaire
 document.addEventListener("DOMContentLoaded", function () {
@@ -607,9 +610,105 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+//* Sélection aléatoire du cas entré dans le formulaire
+const randomEvolution = function () {
+  //! Vérification du format du cas entré
+  if (!inputValue.match(/^\d+\.\d+\.\d+$/)) {
+    alert("Veuillez entrer un cas valide au format x.y.z");
+    return;
+  }
+  //! Vérification de l'existence d'une évolution pour le cas sélectionné
+  const [x, y, z] = inputValue.split(".");
+  const caseKey = `${x}.${y}`;
+  const subCaseKey = `${x}.${y}.${z}`;
+  if (!seventhMonthEvolutions[caseKey] || !seventhMonthEvolutions[caseKey][subCaseKey]) {
+    alert("Aucune évolution trouvée pour ce cas.");
+    return;
+  }
+  const evolutionsArray = seventhMonthEvolutions[caseKey][subCaseKey].evolutions;
+  if (!evolutionsArray || evolutionsArray.length === 0) {
+    alert("Aucune évolution disponible pour ce cas.");
+    return;
+  }
+  //! Sélection d'une évolution aléatoire pour le cas sélectionné
+  const evolutionKeys = Object.keys(evolutionsArray[0]);
+  const randomKey = evolutionKeys[Math.floor(Math.random() * evolutionKeys.length)];
+  const selectedEvolution = evolutionsArray[0][randomKey];
+  return selectedEvolution;
+};
+
+function generateSeventhMonthTable() {
+  const caseNumber = seventhMonthInput.value.trim();
+  seventhMonthResult.innerHTML = ""; // Réinitialiser le contenu de seventhMonthResult
+
+  if (!caseNumber.match(/^\d+\.\d+\.\d+$/)) return; // Vérifier le format x.y.z
+
+  const x = caseNumber.split(".")[0]; // Récupérer "x"
+  let numberOfBabies = 1;
+
+  if (x === "4") numberOfBabies = 2;
+  else if (x === "8") numberOfBabies = 3;
+  else if (x === "9") numberOfBabies = 4;
+
+  for (let i = 1; i <= numberOfBabies; i++) {
+    // Récupération du sexe du bébé
+    const babySexSelect = document.getElementById(`babySex${i}`);
+    const babyGender = babySexSelect ? babySexSelect.value : "Non précisé";
+
+    // Récupération des données de l'évolution aléatoire
+    const babyKey = `bebe${i}`;
+    const babyData = selectedRandomEvolution[babyKey] || {};
+
+    const caption =
+      numberOfBabies > 1
+        ? `<caption>Bébé n°${i} (${babyGender})</caption>`
+        : `<caption>Bébé ${babyGender}</caption>`;
+
+    const tableHTML = `
+      <table id="babyTable${i}">
+        ${caption}
+        <thead>
+          <tr>
+            <th>Élément observé</th>
+            <th>Observation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tdTitle">Position du fœtus</td>
+            <td>${babyData.positionFoetus || ""}</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Taille estimée</td>
+            <td>${babyData.tailleFoetus || ""}</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Placenta</td>
+            <td>${babyData.placenta || ""}</td>
+          </tr>
+          <tr>
+            <td class="tdTitle">Interprétation</td>
+            <td>${babyData.interpretation || ""}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+    seventhMonthResult.innerHTML += tableHTML;
+  }
+
+  seventhMonthResult.classList.remove("hidden");
+  showNextElement("generateSeventhMonthButton");
+  const conclusionParagraph = document.createElement("p");
+
+  conclusionParagraph.innerHTML = `Cas n°<span class="important">${inputValue}</span><br><span class="rapport">Conclusion : </span>${selectedRandomEvolution.conclusion}`;
+  seventhMonthResult.appendChild(conclusionParagraph);
+}
 //* Gestion de l'envoi du formulaire
 generateSeventhMonthButton.addEventListener("click", function () {
-  console.log("coucou");
+  inputValue = seventhMonthInput.value.trim();
+  selectedRandomEvolution = randomEvolution();
+  generateSeventhMonthTable();
 });
 
 //* Gestion du bouton Fermer
